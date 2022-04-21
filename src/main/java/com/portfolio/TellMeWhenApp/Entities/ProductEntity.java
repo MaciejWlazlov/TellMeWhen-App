@@ -1,10 +1,14 @@
 package com.portfolio.TellMeWhenApp.Entities;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 
-@Data
+@Getter
+@Setter
+@RequiredArgsConstructor
 @Entity
 @Table(name = "products")
 public class ProductEntity {
@@ -15,4 +19,5 @@ public class ProductEntity {
     private String productName;
     private String productType;
     private String placeOfStorage;
+
 }
