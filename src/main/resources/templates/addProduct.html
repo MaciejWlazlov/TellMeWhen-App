@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml"
+      lang="pl">
+<head>
+    <th:block th:insert="index :: copy-head">Copied from index</th:block>
+    <title>Tell Me When - Add new product</title>
+</head>
+<body>
+<div style="display: flex; justify-content: center">
+    <h1>WYBIERZ CO CHCESZ ZROBIĆ</h1>
+</div>
+<form th:action="@{/add}" th:method="post" th:object="${product}">
+    <div class="container text-center">
+
+        <div class="form-floating text-muted mb-3 ">
+            <input type="text" th:field="*{name}" class="form-control" id="username" placeholder="Username"
+                   name="username">
+            <label for="username">Name of the product</label>
+        </div>
+
+        <div class="input-group mb-3">
+            <select class="form-select border-1 border-success" th:field="*{type}">
+                <option value="0" selected>Choose type of product</option>
+                <option th:each="type : ${types}" th:value="${types}" th:text="${type}"></option>
+            </select>
+        </div>
+        <div class="input-group mb-3">
+            <select th:field="*{place}" class="form-select border-1 border-success">
+                <option value="0" selected>Choose place of storage</option>
+                <option th:each="place : ${places}" value="${places}" th:text="${place}"></option>
+
+            </select>
+        </div>
+        <button class="w-100 btn btn-lg btn-success text-dark" type="submit">Add</button>
+    </div>
+</form>
+<br>
+<div class="container">
+    <a class="w-100 btn btn-lg btn-success text-dark" th:href="@{/}">Go back</a>
+</div>
+<th:block th:insert="index::copy-scripts">copied from index</th:block>
+</body>
+</html>
