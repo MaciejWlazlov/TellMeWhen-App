@@ -1,9 +1,9 @@
 package com.portfolio.TellMeWhenApp.Repository;
 
-import com.portfolio.TellMeWhenApp.Entities.ProductEntity;
+import com.portfolio.TellMeWhenApp.Model.ProductEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public interface ProductRepository extends JpaRepository<ProductEntity, Long> {
-
-    void findProductEntitiesById(Long id);
+@Repository
+public interface ProductRepository extends JpaRepository<ProductEntity, Integer> {
 }
