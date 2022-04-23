@@ -7,30 +7,32 @@
 </head>
 <body>
 <div style="display: flex; justify-content: center">
-    <h1>WYBIERZ CO CHCESZ ZROBIĆ</h1>
+    <h1>ADD NEW PODUCT</h1>
 </div>
-<form th:action="@{/add}" th:method="post" th:object="${product}">
+<form action="#" th:action="@{/addProduct}" th:method="post" th:object="${productDto}">
     <div class="container text-center">
 
         <div class="form-floating text-muted mb-3 ">
             <input type="text" th:field="*{name}" class="form-control" id="username" placeholder="Username"
                    name="username">
             <label for="username">Name of the product</label>
+            <span class="text-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
         </div>
 
         <div class="input-group mb-3">
             <select class="form-select border-1 border-success" th:field="*{type}">
-                <option value="0" selected>Choose type of product</option>
-                <option th:each="type : ${types}" th:value="${types}" th:text="${type}"></option>
+                <option value="null" selected>Choose type of product</option>
+                <option th:each="type : ${types}" th:value="${type}" th:text="${type}"></option>
             </select>
         </div>
+        <span class="text-danger" th:if="${#fields.hasErrors('type')}" th:errors="*{type}"></span>
         <div class="input-group mb-3">
             <select th:field="*{place}" class="form-select border-1 border-success">
-                <option value="0" selected>Choose place of storage</option>
-                <option th:each="place : ${places}" value="${places}" th:text="${place}"></option>
-
+                <option value="null" selected>Choose place of storage</option>
+                <option th:each="place : ${places}" th:value="${place}" th:text="${place}"></option>
             </select>
         </div>
+        <span class="text-danger" th:if="${#fields.hasErrors('place')}" th:errors="*{place}"></span>
         <button class="w-100 btn btn-lg btn-success text-dark" type="submit">Add</button>
     </div>
 </form>
