@@ -1,13 +1,12 @@
 package com.portfolio.TellMeWhenApp.Service;
 
-import com.portfolio.TellMeWhenApp.Mapper.ProductMapper;
+import com.portfolio.TellMeWhenApp.Mapper.ProductDtoMapper;
 import com.portfolio.TellMeWhenApp.Model.ProductEntity;
 import com.portfolio.TellMeWhenApp.Model.ProductStorage;
 import com.portfolio.TellMeWhenApp.Model.ProductType;
-import com.portfolio.TellMeWhenApp.ModelDTO.ProductDTO;
+import com.portfolio.TellMeWhenApp.ModelDTO.ProductDto;
 import com.portfolio.TellMeWhenApp.Repository.ProductRepository;
 import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.EnumSet;
@@ -15,19 +14,19 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @AllArgsConstructor
-@NoArgsConstructor
 @Service
 public class ProductServiceImpl implements ProductService {
-    ProductRepository productRepository;
-    ProductMapper productMapper;
 
-    public ProductEntity mapNewProduct(ProductDTO productDTO) {
-        return productMapper.mapProductIntoEntity(productDTO);
+    ProductRepository productRepository;
+    ProductDtoMapper productDtoMapper;
+
+    public ProductEntity mapProductDtoToEntity(ProductDto productDto) {
+        return productDtoMapper.mapProductIntoEntity(productDto);
     }
 
     @Override
-    public ProductEntity saveProduct(ProductDTO productDTO) {
-        ProductEntity newProductEntity = mapNewProduct(productDTO);
+    public ProductEntity saveProduct(ProductDto productDto) {
+        ProductEntity newProductEntity = mapProductDtoToEntity(productDto);
         return productRepository.save(newProductEntity);
     }
 
