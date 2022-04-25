@@ -25,15 +25,6 @@ public class MainController {
         return "index";
     }
 
-    @GetMapping("/newProduct")
-    public String newProduct(Model model, ProductDto productDto) {
-        List<String> productTypesList = productService.getAllProductTypes();
-        List<String> productPlacesOfStorageList = productService.getAllProductPlacesOfStorage();
-        model.addAttribute("types", productTypesList);
-        model.addAttribute("places", productPlacesOfStorageList);
-        model.addAttribute("product", productDto);
-        LOGGER.info("Added obiects to view model");
-        return "addProductForm";
-    }
+
 
 }
