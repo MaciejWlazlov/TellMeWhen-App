@@ -25,7 +25,7 @@ public class MainController {
         return "index";
     }
 
-    @GetMapping("/addNewProduct")
+    @GetMapping("/newProduct")
     public String newProduct(Model model, ProductDto productDto) {
         List<String> productTypesList = productService.getAllProductTypes();
         List<String> productPlacesOfStorageList = productService.getAllProductPlacesOfStorage();
