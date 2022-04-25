@@ -2,7 +2,7 @@ package com.portfolio.TellMeWhenApp.Service;
 
 import com.portfolio.TellMeWhenApp.Mapper.ProductDtoMapper;
 import com.portfolio.TellMeWhenApp.Model.ProductEntity;
-import com.portfolio.TellMeWhenApp.Model.ProductStorage;
+import com.portfolio.TellMeWhenApp.Model.ProductStorageLocation;
 import com.portfolio.TellMeWhenApp.Model.ProductType;
 import com.portfolio.TellMeWhenApp.ModelDTO.ProductDto;
 import com.portfolio.TellMeWhenApp.Repository.ProductRepository;
@@ -40,6 +40,6 @@ public class ProductServiceImpl implements ProductService {
     }
 
     public List<String> getAllProductPlacesOfStorage() {
-        return EnumSet.allOf(ProductStorage.class).stream().map(ProductStorage::toString).collect(Collectors.toList());
+        return EnumSet.allOf(ProductStorageLocation.class).stream().map(ProductStorageLocation::toString).collect(Collectors.toList());
     }
 }

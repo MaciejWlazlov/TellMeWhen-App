@@ -3,7 +3,7 @@ package com.portfolio.TellMeWhenApp.Model;
 import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
-public enum ProductStorage {
+public enum ProductStorageLocation {
     FRIDGE("Fridge"),
     FREEZER("Freezer"),
     PANTRY("Pantry");
