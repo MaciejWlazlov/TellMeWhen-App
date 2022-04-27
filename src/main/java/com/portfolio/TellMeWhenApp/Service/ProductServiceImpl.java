@@ -9,6 +9,7 @@ import com.portfolio.TellMeWhenApp.Repository.ProductRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.EnumSet;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -22,6 +23,15 @@ public class ProductServiceImpl implements ProductService {
 
     public ProductEntity mapProductDtoToEntity(ProductDto productDto) {
         return productDtoMapper.mapProductIntoEntity(productDto);
+    }
+
+    public List<ProductDto> createListOfMappedProductDto(List<ProductEntity> productEntities) {
+        List<ProductDto> productDtos = new ArrayList<>();
+
+        for (ProductEntity entity : productEntities) {
+            productDtos.add(productDtoMapper.mapProductIntoDto(entity));
+        }
+        return productDtos;
     }
 
     @Override

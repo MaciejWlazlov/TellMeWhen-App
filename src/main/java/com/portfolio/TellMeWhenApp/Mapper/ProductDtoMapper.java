@@ -19,4 +19,8 @@ public class ProductDtoMapper {
         return productEntity;
     }
 
+    public ProductDto mapProductIntoDto(ProductEntity productEntity){
+        return new ProductDto(productEntity.getId(),productEntity.getProductName(), productEntity.getProductType(), productEntity.getPlaceOfStorage());
+    }
+
 }

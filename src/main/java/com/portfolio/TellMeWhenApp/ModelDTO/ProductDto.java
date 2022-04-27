@@ -5,6 +5,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 public record ProductDto(
+        Integer id,
         @NotNull
         @Length(min = 3, max = 20, message = "The product name should have at least 3 characters")
         String name,
