@@ -8,7 +8,7 @@ public enum ProductType {
     BAKERY("Bakery"),
     CANNED("Canned"),
     FRUITS_AND_VEGETABLES("Fruits and vegetables"),
-    DAIRY("Dairy"),
+    DAIRY_AND_EGGS("Dairy and eggs"),
     DRINKS("Drinks"),
     FISH("Fish"),
     FROZEN("Frozen"),
@@ -18,6 +18,7 @@ public enum ProductType {
     OILS("Oils"),
     READY_MEALS("Ready meals"),
     SNACKS("Snacks"),
+    PRESERVE("Preserve"),
     NOT_FOOD("Not food");
 
 
