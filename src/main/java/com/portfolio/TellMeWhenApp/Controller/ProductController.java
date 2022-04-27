@@ -39,12 +39,11 @@ public class ProductController {
     }
 
     @GetMapping("/newProduct")
-    public String newProduct(Model model, ProductDto productDto) {
+    public String newProduct(Model model, @ModelAttribute("productDto") ProductDto productDto) {
         List<String> productTypesList = productService.getAllProductTypes();
         List<String> productPlacesOfStorageList = productService.getAllProductPlacesOfStorage();
         model.addAttribute("types", productTypesList);
         model.addAttribute("places", productPlacesOfStorageList);
-        model.addAttribute("product", productDto);
         LOGGER.info("Added objects to view model");
         return "addProductForm";
     }
