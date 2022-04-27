@@ -9,5 +9,7 @@ public interface ProductService {
 
     ProductEntity saveProduct(ProductDto productDto);
 
+    void deleteProduct(Integer id);
+
     List<ProductEntity> getAllProducts();
 }

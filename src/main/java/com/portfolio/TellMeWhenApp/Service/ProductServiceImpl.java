@@ -9,6 +9,7 @@ import com.portfolio.TellMeWhenApp.Repository.ProductRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.EnumSet;
 import java.util.List;
@@ -38,6 +39,12 @@ public class ProductServiceImpl implements ProductService {
     public ProductEntity saveProduct(ProductDto productDto) {
         ProductEntity newProductEntity = mapProductDtoToEntity(productDto);
         return productRepository.save(newProductEntity);
+    }
+
+    @Transactional
+    @Override
+    public void deleteProduct(Integer id) {
+        productRepository.deleteById(id);
     }
 
     @Override
