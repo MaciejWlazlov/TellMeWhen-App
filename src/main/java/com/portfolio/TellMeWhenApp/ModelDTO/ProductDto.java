@@ -2,6 +2,7 @@ package com.portfolio.TellMeWhenApp.ModelDTO;
 
 import org.hibernate.validator.constraints.Length;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 public record ProductDto(
@@ -12,6 +13,9 @@ public record ProductDto(
         @NotBlank(message = "Please select product type")
         String type,
         @NotBlank(message = "Please select a storage location for your product")
-        String place) {
+        String place,
+        String purchaseDate,
+        @NotEmpty(message = "Please select product expiration date")
+        String expiryDate) {
 }
 
