@@ -19,7 +19,8 @@ public enum ProductType {
     READY_MEALS("Ready meals"),
     SNACKS("Snacks"),
     PRESERVE("Preserve"),
-    NOT_FOOD("Not food");
+    NOT_FOOD("Not food"),
+    OTHER("Other food");
 
 
     private final String stringValue;

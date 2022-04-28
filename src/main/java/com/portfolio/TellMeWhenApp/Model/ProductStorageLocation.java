@@ -6,7 +6,8 @@ import lombok.AllArgsConstructor;
 public enum ProductStorageLocation {
     FRIDGE("Fridge"),
     FREEZER("Freezer"),
-    PANTRY("Pantry");
+    PANTRY("Pantry"),
+    OTHER("Other place");
 
     private final String stringValue;
 
