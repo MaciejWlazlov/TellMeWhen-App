@@ -7,9 +7,13 @@ import java.util.List;
 
 public interface ProductService {
 
-    ProductEntity saveProduct(ProductDto productDto);
+    void saveProduct(ProductDto productDto);
+
+    void updateProduct(ProductDto productDto);
 
     void deleteProduct(Integer id);
+
+    ProductDto getSingleProduct(Integer id);
 
     List<ProductEntity> getAllProducts();
 }

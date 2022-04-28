@@ -7,6 +7,8 @@ import com.portfolio.TellMeWhenApp.Model.ProductType;
 import com.portfolio.TellMeWhenApp.ModelDTO.ProductDto;
 import com.portfolio.TellMeWhenApp.Repository.ProductRepository;
 import lombok.AllArgsConstructor;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -18,6 +20,8 @@ import java.util.stream.Collectors;
 @AllArgsConstructor
 @Service
 public class ProductServiceImpl implements ProductService {
+
+    public static final Logger LOGGER = LogManager.getLogger(ProductServiceImpl.class);
 
     ProductRepository productRepository;
     ProductDtoMapper productDtoMapper;
@@ -36,15 +40,32 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public ProductEntity saveProduct(ProductDto productDto) {
+    public void saveProduct(ProductDto productDto) {
         ProductEntity newProductEntity = mapProductDtoToEntity(productDto);
-        return productRepository.save(newProductEntity);
+        productRepository.save(newProductEntity);
+    }
+
+    @Override
+    public void updateProduct(ProductDto productDto) {
+        ProductEntity productEntity = productRepository.findById(productDto.id()).orElseThrow();
+        productEntity.setProductName(productDto.name());
+        productEntity.setProductType(productDto.type());
+        productEntity.setPlaceOfStorage(productDto.place());
+        productRepository.save(productEntity);
+
+        LOGGER.info("zaktualizowano produkt");
     }
 
     @Transactional
     @Override
     public void deleteProduct(Integer id) {
         productRepository.deleteById(id);
+    }
+
+    @Override
+    public ProductDto getSingleProduct(Integer id) {
+        ProductEntity productEntity = productRepository.findById(id).orElseThrow();
+        return productDtoMapper.mapProductIntoDto(productEntity);
     }
 
     @Override
