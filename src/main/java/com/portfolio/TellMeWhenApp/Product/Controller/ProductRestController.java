@@ -1,7 +1,7 @@
-package com.portfolio.TellMeWhenApp.Controller;
+package com.portfolio.TellMeWhenApp.Product.Controller;
 
-import com.portfolio.TellMeWhenApp.Model.ProductEntity;
-import com.portfolio.TellMeWhenApp.Service.ProductServiceImpl;
+import com.portfolio.TellMeWhenApp.Product.Model.ProductEntity;
+import com.portfolio.TellMeWhenApp.Product.Service.ProductServiceImpl;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

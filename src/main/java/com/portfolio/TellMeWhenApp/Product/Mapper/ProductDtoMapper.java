@@ -1,7 +1,7 @@
-package com.portfolio.TellMeWhenApp.Mapper;
+package com.portfolio.TellMeWhenApp.Product.Mapper;
 
-import com.portfolio.TellMeWhenApp.Model.ProductEntity;
-import com.portfolio.TellMeWhenApp.ModelDTO.ProductDto;
+import com.portfolio.TellMeWhenApp.Product.Model.ProductEntity;
+import com.portfolio.TellMeWhenApp.Product.ProductDto.ProductDto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.springframework.stereotype.Component;

@@ -1,11 +1,11 @@
-package com.portfolio.TellMeWhenApp.Service;
+package com.portfolio.TellMeWhenApp.Product.Service;
 
-import com.portfolio.TellMeWhenApp.Mapper.ProductDtoMapper;
-import com.portfolio.TellMeWhenApp.Model.ProductEntity;
-import com.portfolio.TellMeWhenApp.Model.ProductStorageLocation;
-import com.portfolio.TellMeWhenApp.Model.ProductType;
-import com.portfolio.TellMeWhenApp.ModelDTO.ProductDto;
-import com.portfolio.TellMeWhenApp.Repository.ProductRepository;
+import com.portfolio.TellMeWhenApp.Product.Mapper.ProductDtoMapper;
+import com.portfolio.TellMeWhenApp.Product.Model.ProductEntity;
+import com.portfolio.TellMeWhenApp.Product.Model.ProductStorageLocation;
+import com.portfolio.TellMeWhenApp.Product.Model.ProductType;
+import com.portfolio.TellMeWhenApp.Product.ProductDto.ProductDto;
+import com.portfolio.TellMeWhenApp.Product.Repository.ProductRepository;
 import lombok.AllArgsConstructor;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

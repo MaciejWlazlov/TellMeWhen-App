@@ -1,7 +1,7 @@
-package com.portfolio.TellMeWhenApp.Service;
+package com.portfolio.TellMeWhenApp.Product.Service;
 
-import com.portfolio.TellMeWhenApp.Model.ProductEntity;
-import com.portfolio.TellMeWhenApp.ModelDTO.ProductDto;
+import com.portfolio.TellMeWhenApp.Product.Model.ProductEntity;
+import com.portfolio.TellMeWhenApp.Product.ProductDto.ProductDto;
 
 import java.util.List;
 

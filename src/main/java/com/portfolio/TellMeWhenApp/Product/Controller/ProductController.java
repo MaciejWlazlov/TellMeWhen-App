@@ -1,7 +1,7 @@
-package com.portfolio.TellMeWhenApp.Controller;
+package com.portfolio.TellMeWhenApp.Product.Controller;
 
-import com.portfolio.TellMeWhenApp.ModelDTO.ProductDto;
-import com.portfolio.TellMeWhenApp.Service.ProductServiceImpl;
+import com.portfolio.TellMeWhenApp.Product.ProductDto.ProductDto;
+import com.portfolio.TellMeWhenApp.Product.Service.ProductServiceImpl;
 import lombok.AllArgsConstructor;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -29,7 +29,7 @@ public class ProductController {
         List<String> productPlacesOfStorageList = productService.getAllProductPlacesOfStorage();
         model.addAttribute("types", productTypesList);
         model.addAttribute("places", productPlacesOfStorageList);
-        LOGGER.info("Added products to the view model");
+        LOGGER.info("New product model added to the view");
         return "addNewProductForm";
     }
 
@@ -44,7 +44,7 @@ public class ProductController {
             return "addNewProductForm";
         } else {
             productService.saveProduct(productDto);
-            LOGGER.info("Saved to the database successfully");
+            LOGGER.info("Saved new product to the database successfully");
         }
         return "savedProduct";
     }
@@ -57,7 +57,7 @@ public class ProductController {
         model.addAttribute("productToBeUpdated", productToBeUpdated);
         model.addAttribute("types", productTypesList);
         model.addAttribute("places", productPlacesOfStorageList);
-        LOGGER.info("Edited product added to the view model");
+        LOGGER.info("Edited product model added to the view");
         return "editProductForm";
     }
 

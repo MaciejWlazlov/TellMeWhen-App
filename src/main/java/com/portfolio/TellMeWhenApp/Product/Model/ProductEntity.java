@@ -1,4 +1,4 @@
-package com.portfolio.TellMeWhenApp.Model;
+package com.portfolio.TellMeWhenApp.Product.Model;
 
 import lombok.Getter;
 import lombok.Setter;

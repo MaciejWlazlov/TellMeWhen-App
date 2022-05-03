@@ -1,6 +1,6 @@
-package com.portfolio.TellMeWhenApp.Repository;
+package com.portfolio.TellMeWhenApp.Product.Repository;
 
-import com.portfolio.TellMeWhenApp.Model.ProductEntity;
+import com.portfolio.TellMeWhenApp.Product.Model.ProductEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
