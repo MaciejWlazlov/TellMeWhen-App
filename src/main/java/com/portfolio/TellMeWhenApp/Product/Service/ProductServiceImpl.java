@@ -1,6 +1,6 @@
 package com.portfolio.TellMeWhenApp.Product.Service;
 
-import com.portfolio.TellMeWhenApp.Product.Mapper.ProductDtoMapper;
+import com.portfolio.TellMeWhenApp.Mapper.ProductDtoMapper;
 import com.portfolio.TellMeWhenApp.Product.Model.ProductEntity;
 import com.portfolio.TellMeWhenApp.Product.Model.ProductStorageLocation;
 import com.portfolio.TellMeWhenApp.Product.Model.ProductType;

@@ -1,4 +1,4 @@
-package com.portfolio.TellMeWhenApp.Model;
+package com.portfolio.TellMeWhenApp.ShoppingList.Model;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -10,7 +10,7 @@ import javax.persistence.*;
 @Table(name = "shopping_list")
 @Getter
 @Setter
-public class ShoppingListEntity {
+public class ShoppingProductEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,6 +20,4 @@ public class ShoppingListEntity {
     private String productName;
     @Column(name = "shop_product_type")
     private String productType;
-    @Column(name = "shop_place_of_storage")
-    private String placeOfStorage;
 }

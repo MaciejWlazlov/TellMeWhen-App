@@ -1,4 +1,4 @@
-package com.portfolio.TellMeWhenApp.Product.Mapper;
+package com.portfolio.TellMeWhenApp.Mapper;
 
 import com.portfolio.TellMeWhenApp.Product.Model.ProductEntity;
 import com.portfolio.TellMeWhenApp.Product.ProductDto.ProductDto;
