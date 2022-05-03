@@ -22,15 +22,19 @@
         <th scope="col">Product</th>
         <th scope="col">Product Type</th>
         <th scope="col">Place of Storage</th>
-        <th scope="col"></th>
+        <th scope="col">Purchase Date</th>
+        <th scope="col">Expiry Date</th>
+        <th scope="col">Management</th>
     </tr>
     </thead>
     <tbody>
     <tr th:each="productDto: ${listOfProductDto}">
-        <th scope="row" th:text="${productDto.id()}">id</th>
-        <td th:utext="${productDto.name()}">nazwa</td>
-        <td th:text="${productDto.type()}">typ</td>
-        <td th:text="${productDto.place()}">miejsce</td>
+        <th scope="row" th:text="${productDto.id()}"></th>
+        <td th:utext="${productDto.name()}"></td>
+        <td th:text="${productDto.type()}"></td>
+        <td th:text="${productDto.place()}"></td>
+        <td th:text="${productDto.purchaseDate()}"></td>
+        <td th:text="${productDto.expiryDate()}"></td>
         <td>
             <a class="btn btn-outline-info"
                th:href="@{/editProduct(id=${productDto.id()})}">
