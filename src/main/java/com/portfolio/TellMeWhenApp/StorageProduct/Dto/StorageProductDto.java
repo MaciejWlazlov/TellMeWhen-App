@@ -1,4 +1,4 @@
-package com.portfolio.TellMeWhenApp.StorageProductDto;
+package com.portfolio.TellMeWhenApp.StorageProduct.Dto;
 
 import org.hibernate.validator.constraints.Length;
 import javax.validation.constraints.NotBlank;
@@ -14,7 +14,6 @@ public record StorageProductDto(
         String type,
         @NotBlank(message = "Please select a storage location for your product")
         String place,
-        //TODO walidacja
         String purchaseDate,
         @NotEmpty(message = "Please select product expiration date")
         String expiryDate) {

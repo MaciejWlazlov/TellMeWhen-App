@@ -4,8 +4,8 @@ import com.portfolio.TellMeWhenApp.Mapper.StorageProductMapper;
 import com.portfolio.TellMeWhenApp.StorageProduct.Model.StorageProduct;
 import com.portfolio.TellMeWhenApp.StorageProduct.Model.StorageProductLocation;
 import com.portfolio.TellMeWhenApp.StorageProduct.Model.StorageProductType;
-import com.portfolio.TellMeWhenApp.StorageProduct.Repository.ProductRepository;
-import com.portfolio.TellMeWhenApp.StorageProductDto.StorageProductDto;
+import com.portfolio.TellMeWhenApp.StorageProduct.Repository.StorageProductRepository;
+import com.portfolio.TellMeWhenApp.StorageProduct.Dto.StorageProductDto;
 import lombok.AllArgsConstructor;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -23,17 +23,12 @@ public class StorageProductServiceImpl implements GenericProductService<StorageP
 
     public static final Logger LOGGER = LogManager.getLogger(StorageProductServiceImpl.class);
 
-    ProductRepository productRepository;
-    StorageProductMapper storageProductMapper;
+    StorageProductRepository productRepository;
+    StorageProductMapper productMapper;
 
-    public StorageProduct mapProductDtoToEntity(StorageProductDto storageProductDto) {
-        return storageProductMapper.mapProductIntoEntity(storageProductDto);
-    }
-    
     @Override
     public void save(StorageProductDto storageProductDto) {
-        StorageProduct newStorageProduct = mapProductDtoToEntity(storageProductDto);
-        productRepository.save(newStorageProduct);
+        productRepository.save(productMapper.mapDtoIntoEntity(storageProductDto));
     }
 
     @Override
@@ -56,7 +51,7 @@ public class StorageProductServiceImpl implements GenericProductService<StorageP
     @Override
     public StorageProductDto findOne(Integer id) {
         StorageProduct storageProduct = productRepository.findById(id).orElseThrow();
-        return storageProductMapper.mapProductIntoDto(storageProduct);
+        return productMapper.mapEntityIntoDto(storageProduct);
     }
 
     public List<StorageProductDto> getAll() {
@@ -64,7 +59,7 @@ public class StorageProductServiceImpl implements GenericProductService<StorageP
         List<StorageProductDto> storageProductDtos = new ArrayList<>();
 
         for (StorageProduct entity : productEntities) {
-            storageProductDtos.add(storageProductMapper.mapProductIntoDto(entity));
+            storageProductDtos.add(productMapper.mapEntityIntoDto(entity));
         }
         return storageProductDtos;
     }
