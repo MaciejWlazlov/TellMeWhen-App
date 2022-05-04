@@ -1,4 +1,4 @@
-package com.portfolio.TellMeWhenApp.StorageProduct.Service;
+package com.portfolio.TellMeWhenApp.Service;
 
 import java.util.List;
 

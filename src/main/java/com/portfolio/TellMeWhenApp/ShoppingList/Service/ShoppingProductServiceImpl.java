@@ -4,7 +4,7 @@ import com.portfolio.TellMeWhenApp.Mapper.ShoppingProductMapper;
 import com.portfolio.TellMeWhenApp.ShoppingList.Dto.ShoppingProductDto;
 import com.portfolio.TellMeWhenApp.ShoppingList.Model.ShoppingProduct;
 import com.portfolio.TellMeWhenApp.ShoppingList.Repository.ShoppingProductRepository;
-import com.portfolio.TellMeWhenApp.StorageProduct.Service.GenericProductService;
+import com.portfolio.TellMeWhenApp.Service.GenericProductService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
