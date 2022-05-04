@@ -10,6 +10,5 @@ public record ShoppingProductDto(
         @NotNull
         @Length(min = 3, max = 20, message = "The product name should have at least 3 characters")
         String name,
-        @NotBlank(message = "Please select product type")
         String type) {
 }
