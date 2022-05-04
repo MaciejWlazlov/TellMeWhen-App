@@ -1,11 +1,11 @@
-package com.portfolio.TellMeWhenApp.Product.ProductDto;
+package com.portfolio.TellMeWhenApp.StorageProductDto;
 
 import org.hibernate.validator.constraints.Length;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
-public record ProductDto(
+public record StorageProductDto(
         Integer id,
         @NotNull
         @Length(min = 3, max = 20, message = "The product name should have at least 3 characters")

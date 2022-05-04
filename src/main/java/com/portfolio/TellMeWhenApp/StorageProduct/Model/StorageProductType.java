@@ -1,9 +1,9 @@
-package com.portfolio.TellMeWhenApp.Product.Model;
+package com.portfolio.TellMeWhenApp.StorageProduct.Model;
 
 import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
-public enum ProductType {
+public enum StorageProductType {
     ALCOHOL("Alcohol"),
     BAKERY("Bakery"),
     CANNED("Canned"),

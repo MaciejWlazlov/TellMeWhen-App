@@ -1,4 +1,4 @@
-package com.portfolio.TellMeWhenApp.Product.Model;
+package com.portfolio.TellMeWhenApp.StorageProduct.Model;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -10,7 +10,7 @@ import java.time.LocalDate;
 @Getter
 @Setter
 @Table(name = "products")
-public class ProductEntity {
+public class StorageProduct {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

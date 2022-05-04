@@ -1,9 +1,9 @@
-package com.portfolio.TellMeWhenApp.Product.Model;
+package com.portfolio.TellMeWhenApp.StorageProduct.Model;
 
 import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
-public enum ProductStorageLocation {
+public enum StorageProductLocation {
     FRIDGE("Fridge"),
     FREEZER("Freezer"),
     PANTRY("Pantry"),

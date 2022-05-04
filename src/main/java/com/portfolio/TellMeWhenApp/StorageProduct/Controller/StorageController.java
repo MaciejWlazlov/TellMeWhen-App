@@ -1,8 +1,7 @@
-package com.portfolio.TellMeWhenApp.Controller;
+package com.portfolio.TellMeWhenApp.StorageProduct.Controller;
 
-import com.portfolio.TellMeWhenApp.Product.Model.ProductEntity;
-import com.portfolio.TellMeWhenApp.Product.ProductDto.ProductDto;
-import com.portfolio.TellMeWhenApp.Product.Service.ProductServiceImpl;
+import com.portfolio.TellMeWhenApp.StorageProduct.Service.StorageProductServiceImpl;
+import com.portfolio.TellMeWhenApp.StorageProductDto.StorageProductDto;
 import lombok.AllArgsConstructor;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -18,14 +17,13 @@ public class StorageController {
 
     public static final Logger LOGGER = LogManager.getLogger(StorageController.class);
 
-    ProductServiceImpl productService;
+    StorageProductServiceImpl productService;
 
     @GetMapping("/myStorage")
     public String showAllProducts(Model model) {
 
-        List<ProductEntity> productEntities = productService.getAllProducts();
-        List<ProductDto> listOfProductDto = productService.createListOfMappedProductDto(productEntities);
-        model.addAttribute("listOfProductDto", listOfProductDto);
+        List<StorageProductDto> listOfStorageProductDto = productService.getAll();
+        model.addAttribute("listOfStorageProductDto", listOfStorageProductDto);
 
         LOGGER.info("Successfully loaded all products");
         return "myStorage";

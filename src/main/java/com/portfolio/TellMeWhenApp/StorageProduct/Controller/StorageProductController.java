@@ -1,7 +1,7 @@
-package com.portfolio.TellMeWhenApp.Product.Controller;
+package com.portfolio.TellMeWhenApp.StorageProduct.Controller;
 
-import com.portfolio.TellMeWhenApp.Product.ProductDto.ProductDto;
-import com.portfolio.TellMeWhenApp.Product.Service.ProductServiceImpl;
+import com.portfolio.TellMeWhenApp.StorageProduct.Service.StorageProductServiceImpl;
+import com.portfolio.TellMeWhenApp.StorageProductDto.StorageProductDto;
 import lombok.AllArgsConstructor;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -18,13 +18,13 @@ import java.util.List;
 
 @AllArgsConstructor
 @Controller
-public class ProductController {
+public class StorageProductController {
 
-    public static final Logger LOGGER = LogManager.getLogger(ProductController.class);
-    private final ProductServiceImpl productService;
+    public static final Logger LOGGER = LogManager.getLogger(StorageProductController.class);
+    private final StorageProductServiceImpl productService;
 
     @GetMapping("/newProduct")
-    public String newProduct(@ModelAttribute("productDto") ProductDto productDto, Model model) {
+    public String newProduct(@ModelAttribute("productDto") StorageProductDto storageProductDto, Model model) {
         List<String> productTypesList = productService.getAllProductTypes();
         List<String> productPlacesOfStorageList = productService.getAllProductPlacesOfStorage();
         model.addAttribute("types", productTypesList);
@@ -34,16 +34,17 @@ public class ProductController {
     }
 
     @PostMapping("/addProduct")
-    public String addProduct(@ModelAttribute("productDto") @Valid ProductDto productDto, BindingResult result, Model model) {
+    public String addProduct(@Valid StorageProductDto storageProductDto, BindingResult result, Model model) {
         if (result.hasFieldErrors()) {
             List<String> productTypesList = productService.getAllProductTypes();
             List<String> productPlacesOfStorageList = productService.getAllProductPlacesOfStorage();
+            model.addAttribute("productDto", storageProductDto);
             model.addAttribute("types", productTypesList);
             model.addAttribute("places", productPlacesOfStorageList);
             LOGGER.warn("Errors in the fields");
             return "addNewProductForm";
         } else {
-            productService.saveProduct(productDto);
+            productService.save(storageProductDto);
             LOGGER.info("Saved new product to the database successfully");
         }
         return "savedProduct";
@@ -53,7 +54,7 @@ public class ProductController {
     public String editProduct(@RequestParam("id") Integer id, Model model) {
         List<String> productTypesList = productService.getAllProductTypes();
         List<String> productPlacesOfStorageList = productService.getAllProductPlacesOfStorage();
-        ProductDto productToBeUpdated = productService.getSingleProduct(id);
+        StorageProductDto productToBeUpdated = productService.findOne(id);
         model.addAttribute("productToBeUpdated", productToBeUpdated);
         model.addAttribute("types", productTypesList);
         model.addAttribute("places", productPlacesOfStorageList);
@@ -62,7 +63,7 @@ public class ProductController {
     }
 
     @PostMapping("/updateProduct")
-    public String updateProduct(@ModelAttribute("productDto") @Valid ProductDto productDto, BindingResult result, Model model) {
+    public String updateProduct(@ModelAttribute("productToBeUpdated") @Valid StorageProductDto storageProductDto, BindingResult result, Model model) {
         if (result.hasFieldErrors()) {
             List<String> productTypesList = productService.getAllProductTypes();
             List<String> productPlacesOfStorageList = productService.getAllProductPlacesOfStorage();
@@ -71,7 +72,7 @@ public class ProductController {
             LOGGER.warn("Errors in the updated fields");
             return "editProductForm";
         } else {
-            productService.updateProduct(productDto);
+            productService.update(storageProductDto);
             LOGGER.info("Updated product successfully");
         }
         return "redirect:myStorage";
@@ -79,7 +80,7 @@ public class ProductController {
 
     @GetMapping("/deleteProduct")
     public String deleteProduct(@RequestParam("id") Integer id) {
-        productService.deleteProduct(id);
+        productService.delete(id);
         LOGGER.info("Product with id= " + id + " has been successfully deleted");
         return "redirect:myStorage";
     }
