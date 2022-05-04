@@ -1,19 +1,41 @@
 package com.portfolio.TellMeWhenApp.Mapper;
 
-import com.portfolio.TellMeWhenApp.Product.ProductDto.ProductDto;
-import com.portfolio.TellMeWhenApp.ShoppingList.Model.ShoppingProductEntity;
+import com.portfolio.TellMeWhenApp.ShoppingList.Dto.ShoppingProductDto;
+import com.portfolio.TellMeWhenApp.ShoppingList.Model.ShoppingProduct;
+import com.portfolio.TellMeWhenApp.StorageProduct.Dto.StorageProductDto;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 
+@AllArgsConstructor
+@Data
+@Component
 public class ShoppingProductMapper {
 
-    private ProductDto mapShoppingProductToProductDto(ShoppingProductEntity shoppingProductEntity) {
-        return new ProductDto(
+    public StorageProductDto mapShoppingDtoToStorageProductDto(ShoppingProductDto shoppingProductDto) {
+        return new StorageProductDto(
                 null,
-                shoppingProductEntity.getProductName(),
-                shoppingProductEntity.getProductType(),
+                shoppingProductDto.name(),
+                shoppingProductDto.type(),
                 "Other place",
                 LocalDate.now().toString(),
-                "Choose expiry date");
+                LocalDate.now().plus(3, ChronoUnit.DAYS).toString());
+    }
+
+    public ShoppingProduct mapDtoIntoEntity(ShoppingProductDto shoppingProductDto) {
+        ShoppingProduct shoppingProduct = new ShoppingProduct();
+        shoppingProduct.setProductName(shoppingProductDto.name());
+        shoppingProduct.setProductType(shoppingProductDto.type());
+        return shoppingProduct;
+    }
+
+    public ShoppingProductDto mapEntityIntoDto(ShoppingProduct shoppingProduct) {
+        return new ShoppingProductDto(
+                shoppingProduct.getId(),
+                shoppingProduct.getProductName(),
+                shoppingProduct.getProductType());
     }
 }
