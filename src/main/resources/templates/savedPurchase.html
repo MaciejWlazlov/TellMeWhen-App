@@ -9,37 +9,28 @@
               integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
               crossorigin="anonymous">
     </th:block>
-    <title>Tell Me When</title>
+    <title>TMW::Purchase added!</title>
 </head>
 <body>
 <div style="text-align: center">
-    <h1 th:class="py-4">TELL ME WHEN</h1>
-    <h5 th:class="pb-3">This app can help you manage your grocery items.<br>
-        From now no food or other product in your household will waste.</h5>
+    <h1>PURCHASE ADDED</h1>
 </div>
-<form action="#" th:action="@{/newProduct}" method="get">
-    <div class="container">
-        <button class="w-100 btn btn-lg btn-success text-dark" type="submit">Add new product</button>
-    </div>
-</form>
-<br>
 <form action="#" th:action="@{/newPurchase}" method="get">
     <div class="container">
-        <button class="w-100 btn btn-lg btn-success text-dark" type="submit">Add new purchase</button>
-    </div>
-</form>
-<br>
-<form action="#" th:action="@{/myStorage}" method="get">
-    <div class="container">
-        <button class="w-100 btn btn-lg btn-success text-dark" type="submit">My storage</button>
+        <button class="w-100 btn btn-lg btn-success text-dark" type="submit">Add another purchase</button>
     </div>
 </form>
 <br>
 <form action="#" th:action="@{/myShoppingList}" method="get">
     <div class="container">
-        <button class="w-100 btn btn-lg btn-success text-dark" type="submit">Shopping list</button>
+        <button class="w-100 btn btn-lg btn-success text-dark" type="submit">My shopping list</button>
     </div>
 </form>
+<br>
+<div class="container">
+    <a class="w-100 btn btn-lg btn-success text-dark" th:href="@{/}">Go back</a>
+</div>
+
 <th:block th:fragment="copy-scripts">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"

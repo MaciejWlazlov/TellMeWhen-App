@@ -9,9 +9,13 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @AllArgsConstructor
@@ -24,13 +28,31 @@ public class ShoppingListController {
     StorageProductServiceImpl storageProductService;
     ShoppingProductMapper productMapper;
 
+    @GetMapping("/newPurchase")
+    public String newPurchase(@ModelAttribute("productDto") ShoppingProductDto shoppingProductDto, Model model) {
+        LOGGER.info("New purchase model added to the view");
+        return "addNewPurchaseForm";
+    }
+
+    @PostMapping("/addPurchase")
+    public String addProduct(@ModelAttribute("productDto") @Valid ShoppingProductDto shoppingProductDto, BindingResult result, Model model) {
+        if (result.hasFieldErrors()) {
+            LOGGER.warn("Errors in the fields");
+            return "addNewPurchaseForm";
+        } else {
+            shoppingProductService.save(shoppingProductDto);
+            LOGGER.info("Saved new purchase to the shopping list successfully");
+        }
+        return "savedPurchase";
+    }
+
     @GetMapping("/myShoppingList")
     public String showAllProducts(Model model) {
 
         List<ShoppingProductDto> listOfShoppingProductDto = shoppingProductService.getAll();
         model.addAttribute("listOfShoppingProductDto", listOfShoppingProductDto);
 
-        LOGGER.info("Successfully loaded all products");
+        LOGGER.info("Successfully loaded all purchases");
         return "myShoppingList";
     }
 
