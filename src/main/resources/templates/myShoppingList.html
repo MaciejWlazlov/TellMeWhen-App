@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml"
+      lang="pl">
+<meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+<head>
+    <th:block th:fragment="copy-head">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+              rel="stylesheet"
+              integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+              crossorigin="anonymous">
+    </th:block>
+    <title>TMW::My Shopping List</title>
+</head>
+<body>
+<div style="text-align: center">
+    <h1 class="py-4">My shopping list</h1>
+</div>
+<table class="container table table-hover table-sm">
+    <thead class="bg-success">
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Product</th>
+        <th scope="col">Product Type</th>
+        <th scope="col">Add to MyStorage</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="shoppingProductDto: ${listOfShoppingProductDto}">
+        <th scope="row" th:text="${shoppingProductDto.id()}"></th>
+        <td th:utext="${shoppingProductDto.name()}"></td>
+        <td th:text="${shoppingProductDto.type()}"></td>
+        <td>
+            <a class="btn btn-outline-success" type="button"
+               th:href="@{/addToStorage(id=${shoppingProductDto.id()})}">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                     class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
+                    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
+                </svg>
+            </a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+    <br>
+    <form action="#" th:action="@{/myStorage}" method="get">
+        <div class="container">
+            <button class="w-100 btn btn-lg btn-success text-dark" type="submit">My storage</button>
+        </div>
+    </form>
+    <br>
+    <div class="container">
+        <a class="w-100 btn btn-lg btn-success text-dark" th:href="@{/}">Go back</a>
+    </div>
+
+    <th:block th:fragment="copy-scripts">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+                crossorigin="anonymous"></script>
+    </th:block>
+</body>
+</html>
