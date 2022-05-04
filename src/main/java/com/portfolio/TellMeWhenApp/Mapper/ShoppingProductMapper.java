@@ -20,7 +20,7 @@ public class ShoppingProductMapper {
                 null,
                 shoppingProductDto.name(),
                 shoppingProductDto.type(),
-                "Other place",
+                "Other",
                 LocalDate.now().toString(),
                 LocalDate.now().plus(3, ChronoUnit.DAYS).toString());
     }
@@ -28,7 +28,7 @@ public class ShoppingProductMapper {
     public ShoppingProduct mapDtoIntoEntity(ShoppingProductDto shoppingProductDto) {
         ShoppingProduct shoppingProduct = new ShoppingProduct();
         shoppingProduct.setProductName(shoppingProductDto.name());
-        shoppingProduct.setProductType(shoppingProductDto.type());
+        shoppingProduct.setProductType("Other");
         return shoppingProduct;
     }
 
