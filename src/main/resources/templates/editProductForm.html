@@ -40,6 +40,17 @@
         <div class="container mb-3">
             <span class="text-danger text-uppercase" th:if="${#fields.hasErrors('place')}" th:errors="*{place}"></span>
         </div>
+        <div class="form-floating mb-3 ">
+            <input type="date" th:field="*{purchaseDate}" class="form-control" id="purchaseDate" th:placeholder="${productToBeUpdated.purchaseDate()}"
+                   name="purchaseDate">
+            <label for="purchaseDate">Purchase date</label>
+        </div>
+        <div class="form-floating mb-3 ">
+            <input type="date" th:field="*{expiryDate}" class="form-control" id="expiryDate" th:placeholder="${productToBeUpdated.expiryDate()}"
+                   name="expiryDate">
+            <label for="expiryDate">Expiry date</label>
+        </div>
+
 
         <button class="w-100 btn btn-lg btn-success text-dark" type="submit">Update</button>
     </div>
