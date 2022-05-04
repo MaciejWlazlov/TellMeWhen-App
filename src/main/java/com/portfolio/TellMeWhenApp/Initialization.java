@@ -1,7 +1,9 @@
 package com.portfolio.TellMeWhenApp;
 
+import com.portfolio.TellMeWhenApp.ShoppingList.Model.ShoppingProduct;
+import com.portfolio.TellMeWhenApp.ShoppingList.Repository.ShoppingProductRepository;
 import com.portfolio.TellMeWhenApp.StorageProduct.Model.StorageProduct;
-import com.portfolio.TellMeWhenApp.StorageProduct.Repository.ProductRepository;
+import com.portfolio.TellMeWhenApp.StorageProduct.Repository.StorageProductRepository;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.context.annotation.Configuration;
@@ -14,7 +16,7 @@ public class Initialization {
 
     public static final Logger LOGGER = LogManager.getLogger(Initialization.class);
 
-    public Initialization(ProductRepository productRepository) {
+    public Initialization(StorageProductRepository storageProductRepository, ShoppingProductRepository shoppingProductRepository) {
         LocalDate date = LocalDate.now();
         StorageProduct testEntity1 = new StorageProduct();
         testEntity1.setProductName("Milk");
@@ -41,62 +43,47 @@ public class Initialization {
         testEntity4.setProductName("Beets");
         testEntity4.setProductType("Fruits and vegetables");
         testEntity4.setPlaceOfStorage("Pantry");
-        testEntity4.setPurchaseDate(date);
+        testEntity4.setPurchaseDate(date.minus(10, ChronoUnit.DAYS));
         testEntity4.setExpiryDate(date.plus(1,ChronoUnit.MONTHS));
 
         StorageProduct testEntity5 = new StorageProduct();
         testEntity5.setProductName("Canned mandarins");
         testEntity5.setProductType("Canned");
         testEntity5.setPlaceOfStorage("Pantry");
-        testEntity5.setPurchaseDate(date.minus(1, ChronoUnit.DAYS));
-        testEntity5.setExpiryDate(date.plus(24,ChronoUnit.MONTHS));
+        testEntity5.setPurchaseDate(date);
+        testEntity5.setExpiryDate(date.plus(6,ChronoUnit.MONTHS));
 
-        StorageProduct testEntity6 = new StorageProduct();
+        ShoppingProduct testEntity6 = new ShoppingProduct();
         testEntity6.setProductName("Frozen vegetables");
         testEntity6.setProductType("Frozen");
-        testEntity6.setPlaceOfStorage("Freezer");
-        testEntity6.setPurchaseDate(date.minus(2, ChronoUnit.DAYS));
-        testEntity6.setExpiryDate(date.plus(100,ChronoUnit.MONTHS));
 
-        StorageProduct testEntity7 = new StorageProduct();
+        ShoppingProduct testEntity7 = new ShoppingProduct();
         testEntity7.setProductName("30% cream");
         testEntity7.setProductType("Dairy");
-        testEntity7.setPlaceOfStorage("Pantry");
-        testEntity7.setPurchaseDate(date.minus(25, ChronoUnit.DAYS));
-        testEntity7.setExpiryDate(date.plus(11,ChronoUnit.MONTHS));
 
-        StorageProduct testEntity8 = new StorageProduct();
+        ShoppingProduct testEntity8 = new ShoppingProduct();
         testEntity8.setProductName("Strawberry jam");
         testEntity8.setProductType("Preserve");
-        testEntity8.setPlaceOfStorage("Fridge");
-        testEntity8.setPurchaseDate(date);
-        testEntity8.setExpiryDate(date.plus(3,ChronoUnit.MONTHS));
 
-        StorageProduct testEntity9 = new StorageProduct();
+        ShoppingProduct testEntity9 = new ShoppingProduct();
         testEntity9.setProductName("Cola");
         testEntity9.setProductType("Drinks");
-        testEntity9.setPlaceOfStorage("Fridge");
-        testEntity9.setPurchaseDate(date);
-        testEntity9.setExpiryDate(date.plus(5,ChronoUnit.MONTHS));
 
-        StorageProduct testEntity10 = new StorageProduct();
+        ShoppingProduct testEntity10 = new ShoppingProduct();
         testEntity10.setProductName("Kitchen cleaner");
-        testEntity10.setProductType("Household Chemicals");
-        testEntity10.setPlaceOfStorage("Pantry");
-        testEntity10.setPurchaseDate(date.minus(100, ChronoUnit.DAYS));
-        testEntity10.setExpiryDate(date.plus(24,ChronoUnit.MONTHS));
+        testEntity10.setProductType("Household chemicals");
 
 
-        productRepository.save(testEntity1);
-        productRepository.save(testEntity2);
-        productRepository.save(testEntity3);
-        productRepository.save(testEntity4);
-        productRepository.save(testEntity5);
-        productRepository.save(testEntity6);
-        productRepository.save(testEntity7);
-        productRepository.save(testEntity8);
-        productRepository.save(testEntity9);
-        productRepository.save(testEntity10);
+        storageProductRepository.save(testEntity1);
+        storageProductRepository.save(testEntity2);
+        storageProductRepository.save(testEntity3);
+        storageProductRepository.save(testEntity4);
+        storageProductRepository.save(testEntity5);
+        shoppingProductRepository.save(testEntity6);
+        shoppingProductRepository.save(testEntity7);
+        shoppingProductRepository.save(testEntity8);
+        shoppingProductRepository.save(testEntity9);
+        shoppingProductRepository.save(testEntity10);
 
         LOGGER.info(">>> Successfully initialized test entities into database <<<");
 

@@ -8,19 +8,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class MainController {
-    public static final Logger LOGGER = LogManager.getLogger(MainController.class);
-
-    StorageProductServiceImpl productService;
-
-    public MainController(StorageProductServiceImpl productService) {
-        this.productService = productService;
-    }
 
     @GetMapping("/")
     public String home() {
         return "index";
     }
 
-
+    @GetMapping("/home")
+    public String returnHome() {
+        return "index";
+    }
 
 }
