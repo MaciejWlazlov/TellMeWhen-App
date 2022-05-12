@@ -12,60 +12,81 @@
     <title>Tell Me When</title>
 </head>
 <body>
-<div style="text-align: center">
-    <h1 th:class="py-4">TELL ME WHEN</h1>
-    <h5 th:class="pb-3">This app can help you manage your grocery items.<br>
-        From now no food or other product in your household will waste.</h5>
-</div>
-
-<div class="container">
-    <div class="row justify-content-between">
-        <div class="col-4 text-center">
-            <span style="font-size: 25px">Items to buy:</span>
-            <div class="">
-                <a class="text-decoration-none text-info"
-                   style="font-size: 45px; font-family: Bahnschrift,serif; font-weight: bold"
-                   th:text="${#lists.size(myShoppingList)}" th:href="@{/myShoppingList}"/>
+<!-- Background image -->
+<div class="bg-info" style="background-image: url('https://images.unsplash.com/photo-1546611723-b1c17708a946?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=688&q=80');
+    height: 100vh;">
+    <!-- Background image -->
+    <div class="container text-center col col-5">
+        <h1 class="col-12 py-4 bg-light border border-1 border-dark rounded-2"
+            style="--bs-bg-opacity: .7; font-family: Bahnschrift,serif">TELL ME WHEN</h1>
+        <h5 class="col-12 py-4 bg-light border border-1 border-dark rounded-2"
+            style="--bs-bg-opacity: .7; font-family: Bahnschrift,serif">This app can help you manage your grocery items.<br>
+            From now no food or other product in your household will waste.</h5>
+    </div>
+    <br>
+    <div class="container pb-5">
+        <div class="row justify-content-between">
+            <div class="col-4 text-center bg-light border border-1 border-dark rounded-pill"
+                 style="--bs-bg-opacity: .5;">
+                <span style="font-size: 25px">Items to buy:</span>
+                <div class="">
+                    <a class="text-decoration-none text-dark"
+                       style="font-size: 45px; font-family: Bahnschrift,serif; font-weight: bold"
+                       th:text="${#lists.size(myShoppingList)}" th:href="@{/myShoppingList}"/>
+                </div>
+            </div>
+            <div class="col-4 text-center bg-light border border-1 border-dark rounded-pill"
+                 style="--bs-bg-opacity: .5;">
+                <span style="font-size: 25px">Items in storage:</span>
+                <div class="">
+                    <a class="text-decoration-none text-dark"
+                       style="font-size: 45px; font-family: Bahnschrift,serif; font-weight: bold"
+                       th:text="${#lists.size(myStorageList)}" th:href="@{/myStorage}"/>
+                </div>
             </div>
         </div>
-        <div class="col-4 text-center">
-            <span style="font-size: 25px">Items in storage:</span>
-            <div class="">
-                <a class="text-decoration-none text-info"
-                   style="font-size: 45px; font-family: Bahnschrift,serif; font-weight: bold"
-                   th:text="${#lists.size(myStorageList)}" th:href="@{/myStorage}"/>
-            </div>
+    </div>
+    <div class="container col col-4 bg-light py-3 border border-dark border-1 rounded-3" style="--bs-bg-opacity: .7;">
+        <div class="container text-center col-12 pb-3">
+            <h3 style="font-family: Bahnschrift,serif">What would you like to do?</h3>
         </div>
+        <form action="#" th:action="@{/newProduct}" method="get">
+            <div class="container col-12 ">
+                <button class="w-100 btn btn-lg btn-success text-dark border border-dark rounded-pill text-uppercase" type="submit">Add
+                    items to storage
+                </button>
+            </div>
+        </form>
+        <br>
+        <form action="#" th:action="@{/newPurchase}" method="get">
+            <div class="container col-12">
+                <button class="w-100 btn btn-lg btn-danger text-dark border border-dark rounded-pill text-uppercase" type="submit">Add
+                    items to shopping list
+                </button>
+            </div>
+        </form>
+        <br>
+        <form action="#" th:action="@{/myStorage}" method="get">
+            <div class="container col-12">
+                <button class="w-100 btn btn-lg btn-warning text-dark border border-dark rounded-pill text-uppercase" type="submit">My
+                    storage
+                </button>
+            </div>
+        </form>
+        <br>
+        <form action="#" th:action="@{/myShoppingList}" method="get">
+            <div class="container col-12">
+                <button class="w-100 btn btn-lg btn-primary text-dark border border-dark rounded-pill text-uppercase" type="submit">
+                    Shopping list
+                </button>
+            </div>
+        </form>
     </div>
+    <th:block th:fragment="copy-scripts">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+                crossorigin="anonymous"></script>
+    </th:block>
 </div>
-<br>
-<form action="#" th:action="@{/newProduct}" method="get">
-    <div class="container col-4">
-        <button class="w-100 btn btn-lg btn-success text-dark" type="submit">Add new product</button>
-    </div>
-</form>
-<br>
-<form action="#" th:action="@{/newPurchase}" method="get">
-    <div class="container col-4">
-        <button class="w-100 btn btn-lg btn-success text-dark" type="submit">Add new purchase</button>
-    </div>
-</form>
-<br>
-<form action="#" th:action="@{/myStorage}" method="get">
-    <div class="container col-4">
-        <button class="w-100 btn btn-lg btn-success text-dark" type="submit">My storage</button>
-    </div>
-</form>
-<br>
-<form action="#" th:action="@{/myShoppingList}" method="get">
-    <div class="container col-4">
-        <button class="w-100 btn btn-lg btn-success text-dark" type="submit">Shopping list</button>
-    </div>
-</form>
-<th:block th:fragment="copy-scripts">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-            crossorigin="anonymous"></script>
-</th:block>
 </body>
 </html>
