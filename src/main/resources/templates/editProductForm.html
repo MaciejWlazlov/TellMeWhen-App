@@ -11,7 +11,7 @@
 </div>
 <form action="#" th:action="@{/updateProduct}" th:method="post" th:object="${productToBeUpdated}">
     <div class="container text-center">
-        <div class="form-floating mb-3 ">
+        <div class="form-floating mb-3 visually-hidden">
             <input readonly type="number" th:field="*{id}" class="form-control" id="id" th:placeholder="${productToBeUpdated.id()}"
                    name="id">
             <label for="id">ID</label>
@@ -23,19 +23,21 @@
             <span class="text-danger text-uppercase" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
         </div>
 
-        <div class="input-group ">
-            <select class="form-select border-1 border-success" th:field="*{type}">
+        <div class="form-floating">
+            <select class="form-select border-1 border-success" th:field="*{type}" id="floatingSelectType">
                 <option th:each="type : ${types}" th:value="${type}" th:text="${type}" th:placeholder="${productToBeUpdated.type()}"></option>
             </select>
+            <label for="floatingSelectType">Type of the product</label>
         </div>
         <div class="container mb-3">
             <span class="text-danger text-uppercase " th:if="${#fields.hasErrors('type')}"  th:errors="*{type}"></span>
         </div>
 
-        <div class="input-group">
-            <select th:field="*{place}" class="form-select border-1 border-success">
+        <div class="form-floating">
+            <select th:field="*{place}" class="form-select border-1 border-success" id="floatingSelectPlace">
                 <option th:each="place : ${places}" th:value="${place}" th:text="${place}" th:placeholder="${productToBeUpdated.place()}"></option>
             </select>
+            <label for="floatingSelectPlace">Product place of storage</label>
         </div>
         <div class="container mb-3">
             <span class="text-danger text-uppercase" th:if="${#fields.hasErrors('place')}" th:errors="*{place}"></span>
