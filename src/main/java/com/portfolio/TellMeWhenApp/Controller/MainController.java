@@ -1,16 +1,29 @@
 package com.portfolio.TellMeWhenApp.Controller;
 
+import com.portfolio.TellMeWhenApp.ShoppingList.Dto.ShoppingProductDto;
+import com.portfolio.TellMeWhenApp.ShoppingList.Service.ShoppingProductServiceImpl;
+import com.portfolio.TellMeWhenApp.StorageProduct.Dto.StorageProductDto;
 import com.portfolio.TellMeWhenApp.StorageProduct.Service.StorageProductServiceImpl;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import java.util.List;
+
+@AllArgsConstructor
 @Controller
 public class MainController {
 
+    StorageProductServiceImpl storageProductService;
+    ShoppingProductServiceImpl shoppingProductService;
+
     @GetMapping("/")
-    public String home() {
+    public String home(Model model) {
+        List<StorageProductDto> storageProductsList = storageProductService.getAll();
+        List<ShoppingProductDto> shoppingProductsList = shoppingProductService.getAll();
+        model.addAttribute("myStorageList", storageProductsList);
+        model.addAttribute("myShoppingList", shoppingProductsList);
         return "index";
     }
 
@@ -18,5 +31,6 @@ public class MainController {
     public String returnHome() {
         return "index";
     }
+
 
 }

@@ -17,26 +17,48 @@
     <h5 th:class="pb-3">This app can help you manage your grocery items.<br>
         From now no food or other product in your household will waste.</h5>
 </div>
+
+<div class="container">
+    <div class="row justify-content-between">
+        <div class="col-4 text-center">
+            <span style="font-size: 25px">Items to buy:</span>
+            <div class="">
+                <a class="text-decoration-none text-info"
+                   style="font-size: 45px; font-family: Bahnschrift,serif; font-weight: bold"
+                   th:text="${#lists.size(myShoppingList)}" th:href="@{/myShoppingList}"/>
+            </div>
+        </div>
+        <div class="col-4 text-center">
+            <span style="font-size: 25px">Items in storage:</span>
+            <div class="">
+                <a class="text-decoration-none text-info"
+                   style="font-size: 45px; font-family: Bahnschrift,serif; font-weight: bold"
+                   th:text="${#lists.size(myStorageList)}" th:href="@{/myStorage}"/>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
 <form action="#" th:action="@{/newProduct}" method="get">
-    <div class="container">
+    <div class="container col-4">
         <button class="w-100 btn btn-lg btn-success text-dark" type="submit">Add new product</button>
     </div>
 </form>
 <br>
 <form action="#" th:action="@{/newPurchase}" method="get">
-    <div class="container">
+    <div class="container col-4">
         <button class="w-100 btn btn-lg btn-success text-dark" type="submit">Add new purchase</button>
     </div>
 </form>
 <br>
 <form action="#" th:action="@{/myStorage}" method="get">
-    <div class="container">
+    <div class="container col-4">
         <button class="w-100 btn btn-lg btn-success text-dark" type="submit">My storage</button>
     </div>
 </form>
 <br>
 <form action="#" th:action="@{/myShoppingList}" method="get">
-    <div class="container">
+    <div class="container col-4">
         <button class="w-100 btn btn-lg btn-success text-dark" type="submit">Shopping list</button>
     </div>
 </form>
