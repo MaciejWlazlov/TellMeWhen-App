@@ -13,6 +13,7 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.EnumSet;
 import java.util.List;
@@ -71,5 +72,15 @@ public class StorageProductServiceImpl implements GenericProductService<StorageP
 
     public List<String> getAllProductPlacesOfStorage() {
         return EnumSet.allOf(StorageProductLocation.class).stream().map(StorageProductLocation::toString).collect(Collectors.toList());
+    }
+
+    public List<StorageProductDto> getExpiringProducts() {
+        List<StorageProduct> expiringProducts = productRepository.findTop3ByExpiryDateAfter(LocalDate.now());
+        List<StorageProductDto> expiringProductsDtos = new ArrayList<>();
+
+        for (StorageProduct product : expiringProducts) {
+            expiringProductsDtos.add(productMapper.mapEntityIntoDto(product));
+        }
+        return expiringProductsDtos;
     }
 }

@@ -22,8 +22,11 @@ public class MainController {
     public String home(Model model) {
         List<StorageProductDto> storageProductsList = storageProductService.getAll();
         List<ShoppingProductDto> shoppingProductsList = shoppingProductService.getAll();
+        List<StorageProductDto> expiredProductsList = storageProductService.getExpiringProducts();
+
         model.addAttribute("myStorageList", storageProductsList);
         model.addAttribute("myShoppingList", shoppingProductsList);
+        model.addAttribute("expiredProducts", expiredProductsList);
         return "index";
     }
 
