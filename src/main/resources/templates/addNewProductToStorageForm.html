@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml"
+      lang="pl">
+<head>
+    <th:block th:insert="index :: copy-head">Copied from index</th:block>
+    <title>TMW::Add new product</title>
+</head>
+<body>
+<div class="bg-info" style="background-image: url('https://images.unsplash.com/photo-1546611723-b1c17708a946?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=688&q=80');
+    height: 100vh;">
+    <br>
+    <div class="justify-content-center container text-center">
+        <h1 class="py-2 bg-light border border-1 border-dark rounded-2"
+            style="--bs-bg-opacity: .7; font-family: Bahnschrift,serif; font-size: 45px">ADD NEW PRODUCT TO STORAGE</h1>
+    </div>
+    <form action="#" th:action="@{/addProduct}" th:method="post" th:object="${productDto}">
+        <div class="container">
+            <div class="form-floating text-muted">
+                <input type="text" th:field="*{name}" class="form-control" id="username" placeholder="Username"
+                       name="username">
+                <label for="username">Name of the product</label>
+            </div>
+            <div class="container mb-3 text-center">
+                <span class="fw-bold text-center text-danger text-uppercase" th:if="${#fields.hasErrors('name')}"
+                      th:errors="*{name}"></span>
+            </div>
+        </div>
+        <div class="container">
+            <div class="form-floating">
+                <select class="form-select border-1 border-success" th:field="*{type}"
+                        id="floatingSelectType">
+                    <option value=" " th:selected th:text="'Please select product type'"></option>
+                    <option th:each="type : ${types}" th:value="${type}" th:text="${type}"></option>
+                </select>
+                <label for="floatingSelectType">Product type</label>
+            </div>
+            <div class="container mb-3 text-center">
+                <span class="fw-bold text-danger text-center text-uppercase " th:if="${#fields.hasErrors('type')}"
+                      th:errors="*{type}"></span>
+            </div>
+        </div>
+        <div class="container">
+            <div class="form-floating">
+                <select th:field="*{place}" class="form-select border-1 border-success" id="floatingSelectPlace">
+                    <option value=" " th:selected th:text="'Please select place of storage'">Choose</option>
+                    <option th:each="place : ${places}" th:value="${place}" th:text="${place}"></option>
+                </select>
+                <label for="floatingSelectPlace">Product place of storage</label>
+            </div>
+            <div class="container mb-3 text-center">
+                <span class="fw-bold text-danger text-uppercase" th:if="${#fields.hasErrors('place')}"
+                      th:errors="*{place}"></span>
+            </div>
+        </div>
+        <div class="container">
+            <div class="input-group justify-content-around">
+                <div class="form-floating col-5 mb-3 text-center">
+                    <input type="date" class="form-control" id="purchaseDate" th:field="*{purchaseDate}">
+                    <label for="purchaseDate">Purchase date</label>
+                    <span class="fw-bold text-danger text-uppercase" th:if="${#fields.hasErrors('purchaseDate')}"
+                          th:errors="*{purchaseDate}"></span>
+                </div>
+                <div class="form-floating col-5 mb-4 text-center">
+                    <input type="date" class="form-control" id="expiryDate" th:field="*{expiryDate}">
+                    <label for="expiryDate">Expiry date</label>
+                    <span class="fw-bold text-danger text-uppercase" th:if="${#fields.hasErrors('expiryDate')}"
+                          th:errors="*{expiryDate}"></span>
+                </div>
+            </div>
+            <div class="container text-center">
+                <button class="w-50 btn btn-lg btn-success text-dark border border-dark rounded-pill text-uppercase"
+                        type="submit">Add
+                </button>
+            </div>
+        </div>
+    </form>
+    <br>
+    <div class="container text-center">
+        <a class="w-50 btn btn-lg btn-success text-dark border border-dark rounded-pill text-uppercase" th:href="@{/}">Go
+            back</a>
+    </div>
+</div>
+<th:block th:insert="index::copy-scripts">copied from index</th:block>
+</body>
+</html>

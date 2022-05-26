@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml"
+      lang="pl">
+<head>
+    <th:block th:insert="index :: copy-head">Copied from index</th:block>
+    <title>TMW::Edit product</title>
+</head>
+<body>
+<div class="bg-info" style="background-image: url('https://images.unsplash.com/photo-1546611723-b1c17708a946?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=688&q=80');
+    height: 100vh;">
+    <br>
+    <div class="justify-content-center container text-center">
+        <h1 class="py-2 bg-light border border-1 border-dark rounded-2 text-uppercase"
+            style="--bs-bg-opacity: .7;
+            font-family: Bahnschrift,serif;
+            font-size: 45px">Edit product</h1>
+    </div>
+    <form action="#" th:action="@{/updateProduct}" th:method="post" th:object="${productToBeUpdated}">
+        <div class="container text-center">
+            <div class="form-floating mb-3 visually-hidden">
+                <input readonly type="number" th:field="*{id}" class="form-control" id="id"
+                       th:placeholder="${productToBeUpdated.id()}"
+                       name="id">
+                <label for="id">ID</label>
+            </div>
+            <div class="form-floating mb-3 ">
+                <input type="text" th:field="*{name}" class="form-control" id="username"
+                       th:placeholder="${productToBeUpdated.name()}"
+                       name="username">
+                <label for="username">Name of the product</label>
+                <div class="container text-center mb-3">
+                <span class="text-danger fw-bold text-uppercase" th:if="${#fields.hasErrors('name')}"
+                      th:errors="*{name}"></span>
+                </div>
+            </div>
+
+            <div class="form-floating">
+                <select class="form-select border-1 border-success" th:field="*{type}" id="floatingSelectType">
+                    <option th:each="type : ${types}" th:value="${type}" th:text="${type}"
+                            th:placeholder="${productToBeUpdated.type()}"></option>
+                </select>
+                <label for="floatingSelectType">Type of the product</label>
+            </div>
+            <div class="container text-center mb-3">
+                <span class="text-danger fw-bold text-uppercase " th:if="${#fields.hasErrors('type')}"
+                      th:errors="*{type}"></span>
+            </div>
+
+            <div class="form-floating">
+                <select th:field="*{place}" class="form-select border-1 border-success" id="floatingSelectPlace">
+                    <option th:each="place : ${places}" th:value="${place}" th:text="${place}"
+                            th:placeholder="${productToBeUpdated.place()}"></option>
+                </select>
+                <label for="floatingSelectPlace">Product place of storage</label>
+            </div>
+            <div class="container text-center mb-3">
+                <span class="text-danger fw-bold text-uppercase" th:if="${#fields.hasErrors('place')}"
+                      th:errors="*{place}"></span>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="date" th:field="*{purchaseDate}" class="form-control" id="purchaseDate"
+                       th:placeholder="${productToBeUpdated.purchaseDate()}"
+                       name="purchaseDate">
+                <label for="purchaseDate">Purchase date</label>
+            </div>
+            <div class="form-floating mb-3 ">
+                <input type="date" th:field="*{expiryDate}" class="form-control" id="expiryDate"
+                       th:placeholder="${productToBeUpdated.expiryDate()}"
+                       name="expiryDate">
+                <label for="expiryDate">Expiry date</label>
+            </div>
+
+            <div class="text-center container">
+                <button class="w-50 btn btn-lg btn-success text-dark border border-dark rounded-pill text-uppercase"
+                        type="submit">Update product
+                </button>
+            </div>
+        </div>
+    </form>
+    <br>
+    <div class="container text-center">
+        <a class="w-50 btn btn-lg btn-success text-dark border border-dark rounded-pill text-uppercase"
+           th:href="@{/myStorage}">Go back</a>
+    </div>
+</div>
+<th:block th:insert="index::copy-scripts">copied from index</th:block>
+</body>
+</html>
