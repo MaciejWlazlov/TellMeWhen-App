@@ -26,7 +26,10 @@ public class MainController {
 
         model.addAttribute("myStorageList", storageProductsList);
         model.addAttribute("myShoppingList", shoppingProductsList);
-        model.addAttribute("expiredProducts", expiredProductsList);
+        model.addAttribute("expiredProductsList", expiredProductsList);
+
+        System.out.println(expiredProductsList);
+
         return "index";
     }
 

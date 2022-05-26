@@ -16,17 +16,15 @@
 <div class="bg-info" style="background-image: url('https://images.unsplash.com/photo-1546611723-b1c17708a946?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=688&q=80');
     height: 100vh;">
     <!-- Background image -->
-    <div class="container text-center col col-5">
-        <h1 class="col-12 py-4 bg-light border border-1 border-dark rounded-2"
-            style="--bs-bg-opacity: .7; font-family: Bahnschrift,serif">TELL ME WHEN</h1>
-        <h5 class="col-12 py-4 bg-light border border-1 border-dark rounded-2"
-            style="--bs-bg-opacity: .7; font-family: Bahnschrift,serif">This app can help you manage your grocery items.<br>
-            From now no food or other product in your household will waste.</h5>
-    </div>
+
     <br>
-    <div class="container pb-5">
+    <div class="justify-content-center container text-center">
+        <h1 class="py-2 bg-light border border-1 border-dark rounded-2"
+            style="--bs-bg-opacity: .7; font-family: Bahnschrift,serif; font-size: 45px">TELL ME WHEN</h1>
+    </div>
+    <div class="container pb-3">
         <div class="row justify-content-between">
-            <div class="col-4 text-center bg-light border border-1 border-dark rounded-pill"
+            <div class="col-3 text-center bg-light border border-1 border-dark rounded-pill"
                  style="--bs-bg-opacity: .5;">
                 <span style="font-size: 25px">Items to buy:</span>
                 <div class="">
@@ -35,7 +33,11 @@
                        th:text="${#lists.size(myShoppingList)}" th:href="@{/myShoppingList}"/>
                 </div>
             </div>
-            <div class="col-4 text-center bg-light border border-1 border-dark rounded-pill"
+            <h5 class="col-5 mx-1 py-2 bg-light border border-1 border-dark rounded-2 text-center"
+                style="--bs-bg-opacity: .7; font-family: Bahnschrift,serif">This app can help you manage your grocery
+                items.<br>
+                From now no food or other product in your household will waste.</h5>
+            <div class="col-3 text-center bg-light border border-1 border-dark rounded-pill"
                  style="--bs-bg-opacity: .5;">
                 <span style="font-size: 25px">Items in storage:</span>
                 <div class="">
@@ -46,13 +48,48 @@
             </div>
         </div>
     </div>
+    <div class="container col-6 rounded-3 text-center pb-3">
+        <button class="justify-content-center btn btn-success text-uppercase text-center text-dark"
+                style="font-size: 20px; font-family: Bahnschrift,serif" type="button"
+                data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false"
+                aria-controls="collapseExample">
+            Show products that will expire soon
+        </button>
+        <div class="collapse pt-2" id="collapseExample">
+            <div class="card card-body bg-light" style="--bs-bg-opacity: .7;">
+                <!--tabelka-->
+                <table class="container table table-hover table-sm">
+                    <thead class="bg-success">
+                    <tr>
+                        <th scope="col">Product</th>
+                        <th scope="col">Product Type</th>
+                        <th scope="col">Place of Storage</th>
+                        <th scope="col">Purchase Date</th>
+                        <th scope="col">Expiry Date</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="expiredProduct: ${expiredProductsList}">
+
+                        <td th:utext="${expiredProduct.name()}"></td>
+                        <td th:text="${expiredProduct.type()}"></td>
+                        <td th:text="${expiredProduct.place()}"></td>
+                        <td th:text="${expiredProduct.purchaseDate()}"></td>
+                        <td th:text="${expiredProduct.expiryDate()}"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
     <div class="container col col-4 bg-light py-3 border border-dark border-1 rounded-3" style="--bs-bg-opacity: .7;">
         <div class="container text-center col-12 pb-3">
             <h3 style="font-family: Bahnschrift,serif">What would you like to do?</h3>
         </div>
         <form action="#" th:action="@{/newProduct}" method="get">
             <div class="container col-12 ">
-                <button class="w-100 btn btn-lg btn-success text-dark border border-dark rounded-pill text-uppercase" type="submit">Add
+                <button class="w-100 btn btn-lg btn-success text-dark border border-dark rounded-pill text-uppercase"
+                        type="submit">Add
                     items to storage
                 </button>
             </div>
@@ -60,7 +97,8 @@
         <br>
         <form action="#" th:action="@{/newPurchase}" method="get">
             <div class="container col-12">
-                <button class="w-100 btn btn-lg btn-success text-dark border border-dark rounded-pill text-uppercase" type="submit">Add
+                <button class="w-100 btn btn-lg btn-success text-dark border border-dark rounded-pill text-uppercase"
+                        type="submit">Add
                     items to shopping list
                 </button>
             </div>
@@ -68,7 +106,8 @@
         <br>
         <form action="#" th:action="@{/myStorage}" method="get">
             <div class="container col-12">
-                <button class="w-100 btn btn-lg btn-success text-dark border border-dark rounded-pill text-uppercase" type="submit">My
+                <button class="w-100 btn btn-lg btn-success text-dark border border-dark rounded-pill text-uppercase"
+                        type="submit">My
                     storage
                 </button>
             </div>
@@ -76,7 +115,8 @@
         <br>
         <form action="#" th:action="@{/myShoppingList}" method="get">
             <div class="container col-12">
-                <button class="w-100 btn btn-lg btn-success text-dark border border-dark rounded-pill text-uppercase" type="submit">
+                <button class="w-100 btn btn-lg btn-success text-dark border border-dark rounded-pill text-uppercase"
+                        type="submit">
                     Shopping list
                 </button>
             </div>
