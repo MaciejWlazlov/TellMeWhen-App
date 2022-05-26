@@ -31,19 +31,19 @@ public class ShoppingListController {
     @GetMapping("/newPurchase")
     public String newPurchase(@ModelAttribute("productDto") ShoppingProductDto shoppingProductDto, Model model) {
         LOGGER.info("New purchase model added to the view");
-        return "addNewPurchaseForm";
+        return "addNewPrpoductToShopingList";
     }
 
     @PostMapping("/addPurchase")
     public String addProduct(@ModelAttribute("productDto") @Valid ShoppingProductDto shoppingProductDto, BindingResult result, Model model) {
         if (result.hasFieldErrors()) {
             LOGGER.warn("Errors in the fields");
-            return "addNewPurchaseForm";
+            return "addNewPrpoductToShopingList";
         } else {
             shoppingProductService.save(shoppingProductDto);
             LOGGER.info("Saved new purchase to the shopping list successfully");
         }
-        return "savedPurchase";
+        return "ShoppingListProductSaveSuccess";
     }
 
     @GetMapping("/myShoppingList")

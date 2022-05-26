@@ -30,7 +30,7 @@ public class StorageProductController {
         model.addAttribute("types", productTypesList);
         model.addAttribute("places", productPlacesOfStorageList);
         LOGGER.info("New product model added to the view");
-        return "addNewProductForm";
+        return "addNewProductToStorageForm";
     }
 
     @PostMapping("/addProduct")
@@ -41,12 +41,12 @@ public class StorageProductController {
             model.addAttribute("types", productTypesList);
             model.addAttribute("places", productPlacesOfStorageList);
             LOGGER.warn("Errors in the fields");
-            return "addNewProductForm";
+            return "addNewProductToStorageForm";
         } else {
             productService.save(storageProductDto);
             LOGGER.info("Saved new product to the database successfully");
         }
-        return "savedProduct";
+        return "StorageProductSaveSuccess";
     }
 
     @GetMapping("/editProduct")
@@ -58,7 +58,7 @@ public class StorageProductController {
         model.addAttribute("types", productTypesList);
         model.addAttribute("places", productPlacesOfStorageList);
         LOGGER.info("Edited product model added to the view");
-        return "editProductForm";
+        return "editStorageProductForm";
     }
 
     @PostMapping("/updateProduct")
@@ -69,7 +69,7 @@ public class StorageProductController {
             model.addAttribute("types", productTypesList);
             model.addAttribute("places", productPlacesOfStorageList);
             LOGGER.warn("Errors in the updated fields");
-            return "editProductForm";
+            return "editStorageProductForm";
         } else {
             productService.update(storageProductDto);
             LOGGER.info("Updated product successfully");
