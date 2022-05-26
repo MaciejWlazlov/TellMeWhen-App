@@ -9,5 +9,5 @@ import java.util.List;
 @Repository
 public interface StorageProductRepository extends JpaRepository<StorageProduct, Integer> {
 
-    List<StorageProduct> findTop3ByExpiryDateAfter(LocalDate expiryDate);
+    List<StorageProduct> findFirst5ByExpiryDateBetweenOrderByExpiryDate(LocalDate todaysDate, LocalDate expiryDate);
 }

@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.EnumSet;
 import java.util.List;
@@ -75,7 +76,7 @@ public class StorageProductServiceImpl implements GenericProductService<StorageP
     }
 
     public List<StorageProductDto> getExpiringProducts() {
-        List<StorageProduct> expiringProducts = productRepository.findTop3ByExpiryDateAfter(LocalDate.now());
+        List<StorageProduct> expiringProducts = productRepository.findFirst5ByExpiryDateBetweenOrderByExpiryDate(LocalDate.now(),LocalDate.now().plus(1, ChronoUnit.WEEKS));
         List<StorageProductDto> expiringProductsDtos = new ArrayList<>();
 
         for (StorageProduct product : expiringProducts) {

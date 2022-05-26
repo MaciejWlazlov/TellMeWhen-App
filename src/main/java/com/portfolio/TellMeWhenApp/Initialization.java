@@ -23,14 +23,14 @@ public class Initialization {
         testEntity1.setProductType("Dairy and eggs");
         testEntity1.setPlaceOfStorage("Fridge");
         testEntity1.setPurchaseDate(date.minus(10, ChronoUnit.DAYS));
-        testEntity1.setExpiryDate(date.plus(2,ChronoUnit.MONTHS));
+        testEntity1.setExpiryDate(date.plus(2,ChronoUnit.MONTHS).plus(2,ChronoUnit.DAYS));
 
         StorageProduct testEntity2 = new StorageProduct();
         testEntity2.setProductName("Tuna");
         testEntity2.setProductType("Fish");
         testEntity2.setPlaceOfStorage("Freezer");
         testEntity2.setPurchaseDate(date.minus(5, ChronoUnit.DAYS));
-        testEntity2.setExpiryDate(date.plus(5,ChronoUnit.MONTHS));
+        testEntity2.setExpiryDate(date.plus(5,ChronoUnit.MONTHS).plus(1,ChronoUnit.DAYS));
 
         StorageProduct testEntity3 = new StorageProduct();
         testEntity3.setProductName("Beans");
@@ -44,14 +44,14 @@ public class Initialization {
         testEntity4.setProductType("Fruits and vegetables");
         testEntity4.setPlaceOfStorage("Pantry");
         testEntity4.setPurchaseDate(date.minus(10, ChronoUnit.DAYS));
-        testEntity4.setExpiryDate(date.plus(1,ChronoUnit.MONTHS));
+        testEntity4.setExpiryDate(date.plus(1,ChronoUnit.DAYS));
 
         StorageProduct testEntity5 = new StorageProduct();
         testEntity5.setProductName("Canned mandarins");
         testEntity5.setProductType("Canned");
         testEntity5.setPlaceOfStorage("Pantry");
-        testEntity5.setPurchaseDate(date);
-        testEntity5.setExpiryDate(date.plus(6,ChronoUnit.MONTHS));
+        testEntity5.setPurchaseDate(date.minus(7,ChronoUnit.DAYS));
+        testEntity5.setExpiryDate(date.plus(2,ChronoUnit.DAYS));
 
         ShoppingProduct testEntity6 = new ShoppingProduct();
         testEntity6.setProductName("Frozen vegetables");
