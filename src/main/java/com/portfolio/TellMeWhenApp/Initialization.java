@@ -1,8 +1,8 @@
 package com.portfolio.TellMeWhenApp;
 
-import com.portfolio.TellMeWhenApp.ShoppingList.Model.ShoppingProduct;
+import com.portfolio.TellMeWhenApp.ShoppingList.Entity.ShoppingProduct;
 import com.portfolio.TellMeWhenApp.ShoppingList.Repository.ShoppingProductRepository;
-import com.portfolio.TellMeWhenApp.StorageProduct.Model.StorageProduct;
+import com.portfolio.TellMeWhenApp.StorageProduct.Model.Entity.StorageProduct;
 import com.portfolio.TellMeWhenApp.StorageProduct.Repository.StorageProductRepository;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

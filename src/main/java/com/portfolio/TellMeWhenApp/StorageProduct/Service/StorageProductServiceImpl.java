@@ -2,7 +2,7 @@ package com.portfolio.TellMeWhenApp.StorageProduct.Service;
 
 import com.portfolio.TellMeWhenApp.Mapper.StorageProductMapper;
 import com.portfolio.TellMeWhenApp.Service.GenericProductService;
-import com.portfolio.TellMeWhenApp.StorageProduct.Model.StorageProduct;
+import com.portfolio.TellMeWhenApp.StorageProduct.Model.Entity.StorageProduct;
 import com.portfolio.TellMeWhenApp.StorageProduct.Model.StorageProductLocation;
 import com.portfolio.TellMeWhenApp.StorageProduct.Model.StorageProductType;
 import com.portfolio.TellMeWhenApp.StorageProduct.Repository.StorageProductRepository;

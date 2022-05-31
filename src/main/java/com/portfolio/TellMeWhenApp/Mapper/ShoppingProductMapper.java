@@ -1,7 +1,7 @@
 package com.portfolio.TellMeWhenApp.Mapper;
 
 import com.portfolio.TellMeWhenApp.ShoppingList.Dto.ShoppingProductDto;
-import com.portfolio.TellMeWhenApp.ShoppingList.Model.ShoppingProduct;
+import com.portfolio.TellMeWhenApp.ShoppingList.Entity.ShoppingProduct;
 import com.portfolio.TellMeWhenApp.StorageProduct.Dto.StorageProductDto;
 import lombok.AllArgsConstructor;
 import lombok.Data;

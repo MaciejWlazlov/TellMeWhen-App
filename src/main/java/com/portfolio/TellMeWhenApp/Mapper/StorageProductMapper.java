@@ -1,7 +1,7 @@
 package com.portfolio.TellMeWhenApp.Mapper;
 
 import com.portfolio.TellMeWhenApp.StorageProduct.Dto.StorageProductDto;
-import com.portfolio.TellMeWhenApp.StorageProduct.Model.StorageProduct;
+import com.portfolio.TellMeWhenApp.StorageProduct.Model.Entity.StorageProduct;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.apache.logging.log4j.LogManager;

@@ -1,4 +1,4 @@
-package com.portfolio.TellMeWhenApp.ShoppingList.Model;
+package com.portfolio.TellMeWhenApp.ShoppingList.Entity;
 
 import lombok.Getter;
 import lombok.Setter;

@@ -2,7 +2,7 @@ package com.portfolio.TellMeWhenApp.ShoppingList.Service;
 
 import com.portfolio.TellMeWhenApp.Mapper.ShoppingProductMapper;
 import com.portfolio.TellMeWhenApp.ShoppingList.Dto.ShoppingProductDto;
-import com.portfolio.TellMeWhenApp.ShoppingList.Model.ShoppingProduct;
+import com.portfolio.TellMeWhenApp.ShoppingList.Entity.ShoppingProduct;
 import com.portfolio.TellMeWhenApp.ShoppingList.Repository.ShoppingProductRepository;
 import com.portfolio.TellMeWhenApp.Service.GenericProductService;
 import lombok.AllArgsConstructor;

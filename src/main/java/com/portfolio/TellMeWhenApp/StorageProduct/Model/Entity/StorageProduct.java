@@ -1,4 +1,4 @@
-package com.portfolio.TellMeWhenApp.StorageProduct.Model;
+package com.portfolio.TellMeWhenApp.StorageProduct.Model.Entity;
 
 import lombok.Getter;
 import lombok.Setter;
