@@ -33,10 +33,4 @@ public class MainController {
         return "index";
     }
 
-    @GetMapping("/home")
-    public String returnHome() {
-        return "index";
-    }
-
-
 }
