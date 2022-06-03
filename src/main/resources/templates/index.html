@@ -9,6 +9,7 @@
               rel="stylesheet"
               integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
               crossorigin="anonymous">
+        <link rel="icon" type="image/x-icon" sizes="32x32" th:href="@{/images/favicon.ico}">
     </th:block>
     <title>Tell Me When</title>
 </head>
@@ -95,7 +96,7 @@
         <div class="container text-center col-12 pb-3">
             <h3 style="font-family: Bahnschrift,serif">What would you like to do?</h3>
         </div>
-        <form action="#" th:action="@{/newProduct}" method="get">
+        <form action="#" th:action="@{/myStorage/newProduct}" method="get">
             <div class="container text-center">
                 <button class="w-100 btn btn-lg btn-success text-dark border border-dark rounded-pill text-uppercase"
                         type="submit">Add
