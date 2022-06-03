@@ -19,14 +19,14 @@ public class StorageController {
 
     StorageProductServiceImpl productService;
 
-    @GetMapping("/myStorage")
+    @GetMapping("/storage")
     public String showAllProducts(Model model) {
 
         List<StorageProductDto> listOfStorageProductDto = productService.getAll();
         model.addAttribute("listOfStorageProductDto", listOfStorageProductDto);
 
         LOGGER.info("Successfully loaded all products");
-        return "myStorage";
+        return "storage";
     }
 
 }

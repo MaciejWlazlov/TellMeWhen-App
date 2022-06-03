@@ -15,7 +15,7 @@ import java.util.List;
 
 @AllArgsConstructor
 @Controller
-@RequestMapping("/myStorage")
+@RequestMapping("/storage")
 public class StorageProductController {
 
     public static final Logger LOGGER = LogManager.getLogger(StorageProductController.class);
@@ -44,7 +44,7 @@ public class StorageProductController {
             productService.save(storageProductDto);
             LOGGER.info("Saved new product to the database successfully");
         }
-        return "StorageProductSaveSuccess";
+        return "storageProductSaveSuccess";
     }
 
     @GetMapping("/editProduct")
@@ -72,13 +72,13 @@ public class StorageProductController {
             productService.update(storageProductDto);
             LOGGER.info("Updated product successfully");
         }
-        return "redirect:myStorage";
+        return "redirect:storage";
     }
 
     @GetMapping("/deleteProduct")
     public String deleteProduct(@RequestParam("id") Integer id) {
         productService.delete(id);
         LOGGER.info("Product with id = " + id + " has been successfully deleted");
-        return "redirect:myStorage";
+        return "redirect:storage";
     }
 }
