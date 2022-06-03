@@ -28,14 +28,15 @@ public class WebSecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests(authorize -> authorize
-                        .antMatchers("/myStorage", "/myShoppingList")
+                        .antMatchers("/storage", "/shoppingList")
                         .authenticated()
                 )
                 .formLogin(form -> form
                         .loginPage(LOGIN_PAGE)
                         .permitAll()
-                        .defaultSuccessUrl(HOME_PAGE)
-                );
+                )
+                .logout()
+                        .deleteCookies("JSESSIONID");
         return http.build();
     }
 }
