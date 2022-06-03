@@ -31,3 +31,15 @@ body {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
+.signin-bg {
+  padding-bottom: 6rem;
+  text-align: center;
+  color: #fff;
+  background-image: url("../images/bg-image.jpg");
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: center center;
+  background-size: cover;
+  height: 100vh;
+}
+
