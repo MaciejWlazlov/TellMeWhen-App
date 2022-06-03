@@ -11,6 +11,7 @@ import java.util.Collections;
 
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "users")
 public class User implements UserDetails {
@@ -19,7 +20,9 @@ public class User implements UserDetails {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(unique = true)
     private String email;
+    @Column(nullable = false, unique = true)
     private String username;
     private String password;
     private String role;
