@@ -11,29 +11,25 @@
 <main class="form-signin w-100 m-auto">
     <form th:action="@{/auth/login}" method="post">
         <img class="mb-4" th:src="@{/images/pantry.png}" src="" alt="" width="144" height="114">
-        <h1 class="h1  mb-3 fw-bold"
+        <h1 class="h1 mb-3 fw-bold w-200"
             style="--bs-bg-opacity: .7; font-family: Bahnschrift,serif; font-size: 45px">TELL ME WHEN</h1>
         <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
 
         <div th:if="${param.error}" class="alert alert-danger my-3">
-            <span th:text="'WRONG USERNAME OR PASSWORD'">WRONG USERNAME OR PASSWORD</span>
-        </div>
+            Wrong username of password.</div>
+        <div th:if="${param.logout}" class="alert alert-info my-3">
+            You have been logged out.</div>
         <div class="form-floating">
-            <input type="text" class="form-control" id="floatingInput" placeholder="username">
+            <input type="text" class="form-control" id="floatingInput" name="username" placeholder="username">
             <label for="floatingInput">Username</label>
         </div>
         <div class="form-floating">
-            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+            <input type="password" class="form-control" id="floatingPassword" name="password" placeholder="Password">
             <label for="floatingPassword">Password</label>
         </div>
 
-        <div class="checkbox mb-3">
-            <label>
-                <input type="checkbox" value="remember-me"> Remember me
-            </label>
-        </div>
-        <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
-        <p class="mt-5 mb-3 text-muted">&copy; 2017–2022</p>
+        <button class="w-100 btn btn-lg btn-primary" type="submit">Log in</button>
+        <p class="mt-5 mb-3 text-muted">&copy;2022</p>
     </form>
 </main>
 <th:block th:insert="index::copy-scripts">copied from index</th:block>
