@@ -17,7 +17,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     private static final String HOME_PAGE = "/";
-    private static final String LOGIN_PAGE = "/sign-up";
+    private static final String LOGIN_PAGE = "/auth/login";
 
     MyUserDetailsService userDetailsService;
     @Bean
