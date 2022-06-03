@@ -15,7 +15,7 @@
             font-family: Bahnschrift,serif;
             font-size: 45px">Edit product</h1>
     </div>
-    <form action="#" th:action="@{/myStorage/updateProduct}" th:method="post" th:object="${productToBeUpdated}">
+    <form action="#" th:action="@{/storage/updateProduct}" th:method="post" th:object="${productToBeUpdated}">
         <div class="container text-center">
             <div class="form-floating mb-3 visually-hidden">
                 <input readonly type="number" th:field="*{id}" class="form-control" id="id"
@@ -80,7 +80,7 @@
     <br>
     <div class="container text-center">
         <a class="w-50 btn btn-lg btn-success text-dark border border-dark rounded-pill text-uppercase"
-           th:href="@{/myStorage}">Go back</a>
+           th:href="@{/storage}">Go back</a>
     </div>
 </div>
 <th:block th:insert="index::copy-scripts">copied from index</th:block>

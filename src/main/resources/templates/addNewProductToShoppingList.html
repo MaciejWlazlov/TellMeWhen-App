@@ -14,7 +14,7 @@
             style="--bs-bg-opacity: .7; font-family: Bahnschrift,serif; font-size: 45px">ADD NEW PRODUCT TO SHOPPING
             LIST</h1>
     </div>
-    <form action="#" th:action="@{/addPurchase}" th:method="post" th:object="${productDto}">
+    <form action="#" th:action="@{/shoppingList/addProduct}" th:method="post" th:object="${productDto}">
         <div class="container text-start mb-4">
             <div class="form-floating text-muted">
                 <input type="text" th:field="*{name}" class="form-control" id="username" placeholder="Username"
