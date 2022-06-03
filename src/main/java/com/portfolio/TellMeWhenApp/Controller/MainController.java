@@ -18,7 +18,7 @@ public class MainController {
     StorageProductServiceImpl storageProductService;
     ShoppingProductServiceImpl shoppingProductService;
 
-    @GetMapping("/")
+    @GetMapping("/home")
     public String home(Model model) {
         List<StorageProductDto> storageProductsList = storageProductService.getAll();
         List<ShoppingProductDto> shoppingProductsList = shoppingProductService.getAll();
@@ -31,6 +31,11 @@ public class MainController {
         System.out.println(expiredProductsList);
 
         return "index";
+    }
+
+    @GetMapping("/")
+    public String goHome(){
+        return "redirect:/home";
     }
 
 }
