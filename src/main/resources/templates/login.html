@@ -4,27 +4,29 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
 <head>
     <th:block th:insert="index :: copy-head">Copied from index</th:block>
-    <title>TMW::Log in</title>
     <link rel="stylesheet" th:href="@{/css/signin.css}">
+    <title>TMW::Login</title>
 </head>
-<body class="text-center">
+<body class="text-center signin-bg">
 <main class="form-signin w-100 m-auto">
     <form th:action="@{/auth/login}" method="post">
         <img class="mb-4" th:src="@{/images/pantry.png}" src="" alt="" width="144" height="114">
         <h1 class="h1 mb-3 fw-bold w-200"
-            style="--bs-bg-opacity: .7; font-family: Bahnschrift,serif; font-size: 45px">TELL ME WHEN</h1>
-        <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+            style="font-family: 'FL Pismo Techniczne',serif; font-size: 45px">TELL ME WHEN</h1>
 
         <div th:if="${param.error}" class="alert alert-danger my-3">
-            Wrong username of password.</div>
+            Wrong username of password.
+        </div>
         <div th:if="${param.logout}" class="alert alert-info my-3">
-            You have been logged out.</div>
+            You have been logged out.
+        </div>
         <div class="form-floating">
             <input type="text" class="form-control" id="floatingInput" name="username" placeholder="username">
             <label for="floatingInput">Username</label>
         </div>
         <div class="form-floating">
-            <input type="password" class="form-control" id="floatingPassword" name="password" placeholder="Password">
+            <input type="password" class="form-control" id="floatingPassword" name="password"
+                   placeholder="Password">
             <label for="floatingPassword">Password</label>
         </div>
 
