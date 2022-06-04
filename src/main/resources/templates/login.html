@@ -11,7 +11,7 @@
 <main class="form-signin w-100 m-auto">
     <form th:action="@{/auth/login}" method="post">
         <img class="mb-4" th:src="@{/images/pantry.png}" src="" alt="" width="144" height="114">
-        <h1 class="h1 mb-3 fw-bold w-200"
+        <h1 class="h1 mb-3 fw-bold w-200 text-primary"
             style="font-family: 'FL Pismo Techniczne',serif; font-size: 45px">TELL ME WHEN</h1>
 
         <div th:if="${param.error}" class="alert alert-danger my-3">

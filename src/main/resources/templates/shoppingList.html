@@ -7,6 +7,7 @@
     <title>TMW::My Shopping List</title>
 </head>
 <body>
+<th:block th:insert="index :: copy-navbar">Copied navbar from index</th:block>
 <div class="bg-info" style="background-image: url('https://images.unsplash.com/photo-1546611723-b1c17708a946?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=688&q=80');
     height: 100vh;">
     <br>
@@ -34,7 +35,7 @@
                 <td th:text="${shoppingProductDto.type()}"></td>
                 <td>
                     <a class="btn btn-outline-success" type="button"
-                       th:href="@{/addToStorage(id=${shoppingProductDto.id()})}">
+                       th:href="@{shoppingList/addToStorage(id=${shoppingProductDto.id()})}">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                              class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
                             <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
@@ -45,7 +46,7 @@
             </tbody>
         </table>
         <br>
-        <form action="#" th:action="@{/myStorage}" method="get">
+        <form action="#" th:action="@{/storage}" method="get">
             <div class="container text-center">
                 <button class="w-50 btn btn-lg btn-success text-dark border border-dark rounded-pill text-uppercase"
                         type="submit">My storage
@@ -59,7 +60,6 @@
         </div>
     </div>
 </div>
-
 <th:block th:insert="index::copy-scripts">copied from index</th:block>
 </body>
 </html>
