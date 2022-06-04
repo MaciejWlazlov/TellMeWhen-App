@@ -6,7 +6,6 @@ import com.portfolio.TellMeWhenApp.StorageProduct.Model.Entity.StorageProduct;
 import com.portfolio.TellMeWhenApp.StorageProduct.Repository.StorageProductRepository;
 import com.portfolio.TellMeWhenApp.User.Entity.User;
 import com.portfolio.TellMeWhenApp.User.Repository.UserRepository;
-import lombok.RequiredArgsConstructor;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.context.annotation.Configuration;
@@ -17,15 +16,11 @@ import java.time.temporal.ChronoUnit;
 
 @Configuration
 public class Initialization {
-
     private static final Logger LOGGER = LogManager.getLogger(Initialization.class);
     private static final LocalDate NOW = LocalDate.now();
 
-
-
     public Initialization(StorageProductRepository storageProductRepository, ShoppingProductRepository shoppingProductRepository,
-                           UserRepository userRepository, PasswordEncoder passwordEncoder) {
-
+                          UserRepository userRepository, PasswordEncoder passwordEncoder) {
 
         LocalDate date = NOW;
         StorageProduct testEntity1 = new StorageProduct();
@@ -116,5 +111,4 @@ public class Initialization {
         userRepository.save(testUser);
         LOGGER.info(("================================ Successfully initialized test user/admin accounts ====================================").toUpperCase());
     }
-
 }
