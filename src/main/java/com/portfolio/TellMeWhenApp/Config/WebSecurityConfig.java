@@ -6,17 +6,18 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
 @EnableWebSecurity
 @AllArgsConstructor
-public class WebSecurityConfig {
+public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     private static final String HOME_PAGE = "/home";
     private static final String LOGIN_PAGE = "/auth/login";
+    private static final String LOGOUT_PAGE = "/auth/logout";
     MyUserDetailsService userDetailsService;
 
     @Bean
@@ -24,19 +25,21 @@ public class WebSecurityConfig {
         return new BCryptPasswordEncoder();
     }
 
-    @Bean
-    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+    protected void configure(HttpSecurity http) throws Exception {
+        http.csrf().disable();
+        http.headers().disable();
         http
-                .authorizeRequests(authorize -> authorize
-                        .antMatchers("/storage", "/shoppingList")
-                        .authenticated()
-                )
-                .formLogin(form -> form
-                        .loginPage(LOGIN_PAGE)
-                        .permitAll()
-                )
+                .authorizeRequests()
+                .antMatchers("/storage").authenticated()
+                .and()
+                .formLogin()
+                .loginPage(LOGIN_PAGE)
+                .defaultSuccessUrl(HOME_PAGE)
+                .and()
                 .logout()
-                        .deleteCookies("JSESSIONID");
-        return http.build();
+                .logoutUrl(LOGOUT_PAGE)
+                .logoutSuccessUrl("/auth/login?logout")
+                .deleteCookies("JSESSIONID")
+                .invalidateHttpSession(true);
     }
 }
