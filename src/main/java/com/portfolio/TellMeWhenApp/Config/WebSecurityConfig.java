@@ -30,7 +30,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.headers().disable();
         http
                 .authorizeRequests()
-                .antMatchers("/storage").authenticated()
+                .antMatchers("/storage","/shoppingList").authenticated()
                 .and()
                 .formLogin()
                 .loginPage(LOGIN_PAGE)
