@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
-public class LogInController {
+public class AuthenticationController {
 
     @GetMapping("/auth/login")
     public String signIn(){
@@ -14,6 +14,12 @@ public class LogInController {
 
     @PostMapping("/auth/login")
     public String submit() {
-        return "index";
+        return "redirect:/home";
     }
+
+    @GetMapping("/auth/logout")
+    public String signOut(){
+        return "logout";
+    }
+
 }
