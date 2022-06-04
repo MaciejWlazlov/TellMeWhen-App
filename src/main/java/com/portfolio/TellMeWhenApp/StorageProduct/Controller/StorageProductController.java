@@ -72,13 +72,13 @@ public class StorageProductController {
             productService.update(storageProductDto);
             LOGGER.info("Updated product successfully");
         }
-        return "redirect:storage";
+        return "redirect:";
     }
 
     @GetMapping("/deleteProduct")
     public String deleteProduct(@RequestParam("id") Integer id) {
         productService.delete(id);
         LOGGER.info("Product with id = " + id + " has been successfully deleted");
-        return "redirect:storage";
+        return "redirect:";
     }
 }

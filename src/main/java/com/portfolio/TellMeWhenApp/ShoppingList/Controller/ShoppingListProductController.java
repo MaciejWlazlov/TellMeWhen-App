@@ -53,6 +53,6 @@ public class ShoppingListProductController {
         model.addAttribute("productToBeAdded", productToBeAdded);
 
         LOGGER.info("Edited product model added to the view");
-        return "redirect:shoppingList";
+        return "redirect:/shoppingList";
     }
 }
