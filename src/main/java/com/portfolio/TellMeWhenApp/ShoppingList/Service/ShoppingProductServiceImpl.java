@@ -1,20 +1,25 @@
 package com.portfolio.TellMeWhenApp.ShoppingList.Service;
 
 import com.portfolio.TellMeWhenApp.Mapper.ShoppingProductMapper;
+import com.portfolio.TellMeWhenApp.Service.GenericProductService;
 import com.portfolio.TellMeWhenApp.ShoppingList.Dto.ShoppingProductDto;
 import com.portfolio.TellMeWhenApp.ShoppingList.Entity.ShoppingProduct;
 import com.portfolio.TellMeWhenApp.ShoppingList.Repository.ShoppingProductRepository;
-import com.portfolio.TellMeWhenApp.Service.GenericProductService;
 import lombok.AllArgsConstructor;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.Optional;
 
 @AllArgsConstructor
 @Service
 public class ShoppingProductServiceImpl implements GenericProductService<ShoppingProductDto> {
 
+    public static final Logger LOGGER = LogManager.getLogger(ShoppingProductServiceImpl.class);
     ShoppingProductRepository productRepository;
     ShoppingProductMapper productMapper;
 
@@ -27,12 +32,19 @@ public class ShoppingProductServiceImpl implements GenericProductService<Shoppin
     }
 
     @Override
-    public void delete(Integer id) {productRepository.deleteById(id);
+    public void delete(Integer id) {
+        productRepository.deleteById(id);
     }
 
     @Override
     public ShoppingProductDto findOne(Integer id) {
-        return productMapper.mapEntityIntoDto(productRepository.findById(id).orElseThrow());
+        Optional<ShoppingProduct> foundProduct = productRepository.findById(id);
+        if (foundProduct.isEmpty()) {
+            LOGGER.warn("Product doesn't exist");
+            throw new NoSuchElementException("Product doesn't exist");
+        }
+        LOGGER.info("Found product with id : " + id);
+        return productMapper.mapEntityIntoDto(foundProduct.get());
     }
 
     @Override
