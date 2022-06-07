@@ -129,4 +129,4 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/wlazlo-maciej/
 [license-shield]: https://img.shields.io/github/license/github_username/repo_name.svg?style=for-the-badge
-[license-url]:(https://github.com/MaciexDrop/TellMeWhen-App/blob/master/LICENSE.txt)
+[license-url]: https://github.com/MaciexDrop/TellMeWhen-App/blob/master/LICENSE.txt
