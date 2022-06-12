@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml"
+      lang="pl">
+<meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+<head>
+    <th:block th:insert="index :: copy-head">Copied from index</th:block>
+    <link rel="stylesheet" th:href="@{/css/signin.css}">
+    <title>TMW::Register</title>
+</head>
+<body class="signin-bg text-center">
+<div class="justify-content-center container text-center">
+    <h1 class="py-2 bg-light border border-1 border-dark rounded-2"
+        style="--bs-bg-opacity: .7; font-family: Bahnschrift,serif; font-size: 45px">REGISTER</h1>
+</div>
+<form th:action="@{/user/registration}" method="post" th:object="${user}">
+    <div class="container form-floating text-muted">
+        <input th:class="form-control" type="text" th:field="*{username}" id="username"
+               placeholder="Username"
+               name="username">
+        <label for="username">Username</label>
+    </div>
+    <div class="container mb-3 text-center">
+        <span class="fw-bold text-center text-danger text-uppercase" th:if="${#fields.hasErrors('username')}"
+              th:errors="*{username}"></span>
+    </div>
+    <div class="container form-floating text-muted">
+        <input th:class="form-control" type="email" th:field="*{email}" id="email" placeholder="Email address"
+               name="email">
+        <label for="email">Email address</label>
+    </div>
+    <div class="container mb-3 text-center">
+        <span class="fw-bold text-center text-danger text-uppercase" th:if="${#fields.hasErrors('email')}"
+              th:errors="*{email}"></span>
+    </div>
+    <div class="container form-floating text-muted">
+        <input th:class="form-control" type="password" th:field="*{password}" id="password" placeholder="Password"
+               name="password">
+        <label for="password">Password</label>
+    </div>
+    <div class="container mb-3 text-center">
+        <span class="fw-bold text-center text-danger text-uppercase" th:if="${#fields.hasErrors('password')}"
+              th:errors="*{email}"></span>
+    </div>
+    <div class="container form-floating text-muted">
+        <input th:class="form-control" type="password" th:field="*{matchingPassword}" id="matchingPassword"
+               placeholder="Confirm password"
+               name="matchingPassword">
+        <label for="matchingPassword">Confirm Password</label>
+    </div>
+    <button class="w-50 btn btn-lg btn-success text-dark border border-dark rounded-pill text-uppercase" type="submit">
+        Submit
+    </button>
+    <a th:href="@{/auth/login}">
+        <button class="w-50 btn btn-lg btn-success text-dark border border-dark rounded-pill text-uppercase">
+            Login
+        </button>
+    </a>
+</form>
+</body>
+</html>
