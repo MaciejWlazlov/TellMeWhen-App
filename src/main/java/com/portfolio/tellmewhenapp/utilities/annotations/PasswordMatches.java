@@ -1,6 +1,6 @@
 package com.portfolio.tellmewhenapp.utilities.annotations;
 
-import com.portfolio.tellmewhenapp.utilities.CustomValidators.PasswordMatchesValidator;
+import com.portfolio.tellmewhenapp.utilities.validators.PasswordMatchesValidator;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;

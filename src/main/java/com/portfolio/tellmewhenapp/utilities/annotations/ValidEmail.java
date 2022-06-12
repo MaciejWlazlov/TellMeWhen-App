@@ -1,6 +1,6 @@
 package com.portfolio.tellmewhenapp.utilities.annotations;
 
-import com.portfolio.tellmewhenapp.utilities.CustomValidators.EmailValidator;
+import com.portfolio.tellmewhenapp.utilities.validators.EmailValidator;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;
