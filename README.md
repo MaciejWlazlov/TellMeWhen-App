@@ -47,19 +47,20 @@
 <!--     <li><a href="#usage">Usage</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li> -->
-    <li><a href="#license">License</a></li>
+   <li><a href="#main-page-view">Main Page View</a></li>
+   <li><a href="#license">License</a></li>
 <!--     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li> -->
   </ol>
 </details>
 
 <!-- ABOUT THE PROJECT -->
+
 ## About The Project
 
 <!-- [![Product Name Screen Shot][product-screenshot]](https://example.com) -->
 
 <!-- <p align="right">(<a href="#top">back to top</a>)</p> -->
-
 
 ### Built With
 
@@ -73,6 +74,7 @@
 
 
 <!-- GETTING STARTED -->
+
 ## Getting Started
 
 This is an example of how you may give instructions on setting up your project locally.
@@ -99,7 +101,14 @@ In order to run this container you'll need docker installed.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
+<!-- MAIN PAGE VIEW -->
+
+## Main Page View
+
+![ScreenShot](/screenshots/main%20page%20view.png)
+
 <!-- LICENSE -->
+
 ## License
 
 Distributed under the MIT License. See `LICENSE.txt` for more information.
@@ -109,9 +118,15 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
+
 [contributors-shield]: https://img.shields.io/github/contributors/github_username/repo_name.svg?style=for-the-badge
+
 [contributors-url]: https://github.com/MaciexDrop/TellMeWhen-App/graphs/contributors
+
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
+
 [linkedin-url]: https://www.linkedin.com/in/wlazlo-maciej/
+
 [license-shield]: https://img.shields.io/github/license/github_username/repo_name.svg?style=for-the-badge
+
 [license-url]: https://github.com/MaciexDrop/TellMeWhen-App/blob/master/LICENSE.txt

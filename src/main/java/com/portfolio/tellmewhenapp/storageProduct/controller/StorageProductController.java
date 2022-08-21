@@ -2,7 +2,7 @@ package com.portfolio.tellmewhenapp.storageProduct.controller;
 
 import com.portfolio.tellmewhenapp.storageProduct.dto.StorageProductDto;
 import com.portfolio.tellmewhenapp.storageProduct.service.StorageProductServiceImpl;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Controller;
@@ -14,7 +14,7 @@ import javax.validation.Valid;
 import java.text.MessageFormat;
 import java.util.List;
 
-@AllArgsConstructor
+@RequiredArgsConstructor
 @Controller
 @RequestMapping("/storage")
 public class StorageProductController {
